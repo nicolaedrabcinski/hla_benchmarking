@@ -1,0 +1,10 @@
+# Large re-downloadable reference database (auto-fetched by
+# notebooks/accuracy_fixed_executed.ipynb from ftp.ebi.ac.uk if missing; ~323MB,
+# exceeds GitHub's single-file limit and shouldn't live in git history)
+datasets/hla.dat
+
+# OS / editor cruft
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
