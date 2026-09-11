@@ -116,8 +116,37 @@ description in both places.
   without first patching around their paired-end requirement (not
   attempted, out of scope for a single session) or obtaining different,
   genuinely paired-end D7 reads.
-- **Status: OPEN / effectively won't-fix** without a scope decision on
-  patching the tools themselves.
+- **Duplicate-as-mate hack tested 2026-09-11 (Human-PI authorized pilot,
+  Nick) and FAILED, not just risky.** Tried the obvious workaround for a
+  PE-only tool: extract single-end fastq correctly (`samtools fastq $BAM >
+  $SE`, 443,307,715 reads, 98GB, verified real content this time -- not the
+  earlier empty-file bug), then feed the *same file* as both `-1` and `-2`
+  to HLAforest's `CallHaplotypesPE.sh` (chosen as the lowest-risk of the
+  three since it doesn't depend on insert-size/expression, just an
+  alignment-support signal) on SRR7881399. Result: bowtie reports **0/2
+  reads with at least one alignment (0.00%)** -- not degraded, not
+  single-end-equivalent, completely non-functional. Root cause: bowtie's
+  paired-end mode requires the mates to satisfy an expected FR
+  (forward/reverse) orientation at the aligned coordinates; duplicating one
+  single-end read as both mates gives it two *identical-strand,
+  identical-sequence* reads, which can never satisfy that geometry, so
+  every single pair is rejected as improperly oriented before any
+  allele-calling logic even runs. seq2HLA and HLA-HD wrap the same
+  bowtie/bowtie2 paired-alignment core, so there is no reason to expect
+  them to behave differently -- not independently tested, but the same
+  failure mode almost certainly applies. Reverse-complementing one copy to
+  fake FR orientation was considered and rejected: it might coax bowtie
+  into producing alignments, but at that point the "insert size" is a pure
+  fabrication (the real fragment length being encoded is unknown), which is
+  a step further into manufacturing data rather than working around a
+  format mismatch, and wasn't attempted.
+- **Status: RESOLVED as won't-fix 2026-09-11** (this agent, Human-PI
+  authorized pilot). The duplicate-as-mate workaround does not work
+  mechanically (confirmed, not just judged too risky) for the
+  lowest-risk of the three candidate tools; there is no viable path to
+  running seq2HLA, HLAforest, or HLA-HD on D7 without patching each
+  tool's paired-end assumption or obtaining genuinely paired-end D7 reads.
+  D7's roster is closed at 7/12 unless one of those two happens.
 
 ### HUMAN-PI DECISION 2026-09-11: D8 IS TO BE INCLUDED IN THE MAIN ANALYSIS — implementation not yet done
 - **Decision:** Nick (Human PI / current project owner per `project_ram_handover`
