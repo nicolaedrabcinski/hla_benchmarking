@@ -69,6 +69,56 @@ description in both places.
 
 ## Open
 
+### D7 IS STRUCTURALLY CAPPED AT 7/12 TOOLS — seq2HLA, HLAforest, HLA-HD are hard paired-end-only and D7's BAMs are genuinely single-end
+- **Found:** this agent, 2026-09-11, root-causing why `datasets/raw/run_d7_remaining_tools.sh`'s
+  2026-08-29 attempt at seq2HLA/HLAforest/HLA-HD on D7 failed on every
+  sample with cryptic tool-level errors (`gzip: unexpected end of file`,
+  `Error: reads file does not look like a FASTQ file`, `IndexError: list
+  index out of range` inside seq2HLA) that were never root-caused at the
+  time.
+- **Root cause:** `samtools flagstat` on `d7_bams/SRR7881399_Aligned.sortedByCoord.out.bam`
+  shows **`0 paired in sequencing`** out of 443,307,715 primary reads --
+  this BAM (and, by construction, every D7 BAM) is genuinely single-end,
+  matching this project's own earlier finding that D7's SRA metadata has
+  `spots_with_mates=0` despite a nominal `LibraryLayout=PAIRED` tag.
+  `run_d7_remaining_tools.sh` extracts with `samtools fastq -1 R1 -2 R2`
+  (paired-mode) regardless -- with zero reads flagged paired, every read
+  routes to the unpaired/singleton bucket (sent to `/dev/null` in that
+  script), so R1/R2 come out genuinely empty (0 bytes, confirmed) even
+  though the extraction command itself exits 0/0 and reports "443307715
+  reads processed" -- no error surfaces anywhere in that path. The tools
+  then correctly fail on the resulting empty/malformed input; their error
+  messages just never pointed at the real cause.
+  `run_d7_hisat_hlapers.sh` (the script that produced D7's working
+  HISAT-genotype-attempt and HLApers output) already does this correctly:
+  `samtools fastq -@ N "$BAM" > "$SE"` (one file, no `-1/-2`) -- which is
+  exactly why HLApers has real D7 data and these three don't.
+- **Why this can't just be re-run with the right extraction:** checked
+  each tool's own CLI (`--help`/usage) -- all three are hard paired-end
+  only, with no single-end mode:
+  - seq2HLA: `Usage: seq2HLA.py -1 readFile1 -2 readFile2 -r runName ...`
+    -- `-1`/`-2` are both required, no single-file option exists.
+  - HLAforest: every haplotype-calling script in `tools/hlaforest/scripts/`
+    is named `CallHaplotypesPE*.sh` (PE = paired-end); no SE variant ships
+    with the tool.
+  - HLA-HD: `bin/hlahd.sh`'s usage string is positional
+    `fastqfile1 fastqfile2 ...` -- two files, not optional.
+  Feeding the same single-end fastq as both "R1" and "R2" would satisfy
+  the CLI but fabricate fake mate-pair information these tools use for
+  alignment/expression calculations -- not attempted, this would be
+  scientifically dishonest, not a fix.
+- **Practical consequence:** D7's 7/12-tool roster (T1K, arcasHLA,
+  HLAminer, HLApers, HLA-VBSeq, OptiType, RNA2HLA) is very likely D7's
+  **real ceiling**, not a temporary gap -- seq2HLA/HLAforest/HLA-HD are
+  structurally excluded by the data's single-end nature (separate from
+  HISAT-genotype's own unrelated bug-3 exclusion, and PHLAT's separate
+  missing-reference-index exclusion). Do not re-attempt these three on D7
+  without first patching around their paired-end requirement (not
+  attempted, out of scope for a single session) or obtaining different,
+  genuinely paired-end D7 reads.
+- **Status: OPEN / effectively won't-fix** without a scope decision on
+  patching the tools themselves.
+
 ### HUMAN-PI DECISION 2026-09-11: D8 IS TO BE INCLUDED IN THE MAIN ANALYSIS — implementation not yet done
 - **Decision:** Nick (Human PI / current project owner per `project_ram_handover`
   memory), 2026-09-11, in direct response to being shown that this session's
