@@ -5,10 +5,10 @@ C*06:06,C,41.67,12,D3,1,1,not assessable (single dataset)
 B*41:04,B,25.0,24,D1,1,0,not assessable (single dataset)
 DRB1*13:21,DRB1,25.0,12,D1,1,0,not assessable (single dataset)
 DRB1*08:04,DRB1,24.31,144,D1+D7,1,0,not assessable (single dataset)
-DRB1*04:02,DRB1,23.33,60,D1,1,0,not assessable (single dataset)
+DRB1*04:02,DRB1,23.33,60,D1+D8,1,0,not assessable (single dataset)
 DRB1*04:08,DRB1,22.62,84,D1+D2,2,1,dataset-specific
 DRB1*14:01,DRB1,21.67,406,D1+D2+D4,3,1,dataset-specific
-DRB1*11:04,DRB1,21.54,311,D1+D4,2,1,dataset-specific
+DRB1*11:04,DRB1,21.54,311,D1+D4+D8,2,1,dataset-specific
 B*27:51,B,20.83,24,D1,1,0,not assessable (single dataset)
 DQB1*05:04,DQB1,20.83,24,D1,1,0,not assessable (single dataset)
 DRB1*13:27,DRB1,20.83,24,D1,1,0,not assessable (single dataset)
