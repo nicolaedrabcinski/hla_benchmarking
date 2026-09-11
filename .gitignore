@@ -8,3 +8,28 @@ datasets/hla.dat
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+
+# Raw sequencing data / aligner indices / per-run logs (hundreds of GB;
+# re-derivable from datasets/raw/*.sh scripts + public accessions, never
+# meant to live in git). A handful of small pre-existing files under
+# datasets/raw/ predate this rule and stay tracked (git already has them);
+# everything else new under here is ignored.
+datasets/raw/*_bams/
+datasets/raw/*_fastq_tmp/
+datasets/raw/d8_pacbio/
+datasets/raw/star_index/
+datasets/raw/references/
+datasets/raw/hlapers_ref/
+datasets/raw/hlapers_hladb/
+datasets/raw/hlapers_index.idx
+datasets/raw/t1k_ref/
+datasets/raw/d7_*/
+datasets/raw/d8_*/
+datasets/raw/*.log
+
+# Deliberate pre-fix/pre-refresh backups (project convention: kept on disk,
+# never committed -- see .claude/memory/KNOWN_BUGS.md for what each one is a
+# backup of).
+*.bak
+*.bak_*
+*_backup/
