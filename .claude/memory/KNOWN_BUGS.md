@@ -111,7 +111,20 @@ description in both places.
 - **Owner for implementation:** `dataset-curator` (per the Decision Authority
   Table) to fold D8 into the main notebook; `hla-benchmark-scientist` for the
   scoring-fit review the table also requires.
-- **Status: Open — decision made, implementation pending.**
+- **Status: RESOLVED 2026-09-11** (this agent, Human-PI authorized: Nick,
+  "Тоже делай"). Implemented as scoped above: `DISPLAY_SCOPE` extended to
+  D1-D8, D8 shown in Figure 7's per-dataset panels
+  (`Figures/fig7_supp_c_D8.{png,svg}`, new) and `phase_ambiguity_summary.csv`
+  / `fig6c_ridge_v1/v2` (D8 already flowed through their existing
+  `range(1,9)` loops once `results/standard/T1K_d8.csv`'s case-mismatch was
+  fixed). `MAIN_SCOPE` deliberately left at D1-D6 (D8 displayed, not pooled
+  into the top-20 ranking denominator -- same reasoning as D7's 2026-07-24
+  exclusion from that pooling). Full notebook re-executed cleanly (no
+  CellExecutionError); cell 57's stale "D8 contributes nothing" comment
+  corrected. `results_summary.md`'s prose (the "both excluded from main
+  analysis" line) was NOT touched -- that's manuscript text, not this
+  notebook's scope constants; flagged as the remaining piece of BACKLOG.md
+  E25.
 
 ### `accession/d{N}_list.txt` FILES USE A DIFFERENT (STALE) DATASET NUMBERING THAN `datasets/{N}_gs.csv` / `results/standard/*_d{N}.csv`
 - **Found:** this agent, 2026-09-02, while checking BACKLOG.md's E18 (Table 1
