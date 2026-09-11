@@ -1,0 +1,141 @@
+Allele,Locus,Dataset,InMainScope(D1-D6),GSSlotsInDataset,State,Total,Mis,MisclassificationRate%
+DQB1*06:05,DQB1,1,True,7,scored,84,44,52.38
+DQB1*06:05,DQB1,2,True,0,not present in dataset,0,0,
+DQB1*06:05,DQB1,3,True,0,not present in dataset,0,0,
+DQB1*06:05,DQB1,4,True,0,not present in dataset,0,0,
+DQB1*06:05,DQB1,5,True,0,not present in dataset,0,0,
+DQB1*06:05,DQB1,6,True,0,not present in dataset,0,0,
+DQB1*06:05,DQB1,7,False,0,not present in dataset,0,0,
+C*03:05,C,1,True,0,not present in dataset,0,0,
+C*03:05,C,2,True,0,not present in dataset,0,0,
+C*03:05,C,3,True,1,scored,12,5,41.67
+C*03:05,C,4,True,0,not present in dataset,0,0,
+C*03:05,C,5,True,0,not present in dataset,0,0,
+C*03:05,C,6,True,0,not present in dataset,0,0,
+C*03:05,C,7,False,0,not present in dataset,0,0,
+C*06:06,C,1,True,0,not present in dataset,0,0,
+C*06:06,C,2,True,0,not present in dataset,0,0,
+C*06:06,C,3,True,1,scored,12,5,41.67
+C*06:06,C,4,True,0,not present in dataset,0,0,
+C*06:06,C,5,True,0,not present in dataset,0,0,
+C*06:06,C,6,True,0,not present in dataset,0,0,
+C*06:06,C,7,False,0,not present in dataset,0,0,
+B*41:04,B,1,True,2,scored,24,6,25.0
+B*41:04,B,2,True,0,not present in dataset,0,0,
+B*41:04,B,3,True,0,not present in dataset,0,0,
+B*41:04,B,4,True,0,not present in dataset,0,0,
+B*41:04,B,5,True,0,not present in dataset,0,0,
+B*41:04,B,6,True,0,not present in dataset,0,0,
+B*41:04,B,7,False,0,not present in dataset,0,0,
+DRB1*13:21,DRB1,1,True,1,scored,12,3,25.0
+DRB1*13:21,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*13:21,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*13:21,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*13:21,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*13:21,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*13:21,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*08:04,DRB1,1,True,14,scored,144,35,24.31
+DRB1*08:04,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*08:04,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*08:04,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*08:04,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*08:04,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*08:04,DRB1,7,False,3,scored,9,9,100.0
+DRB1*04:02,DRB1,1,True,5,scored,60,14,23.33
+DRB1*04:02,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*04:02,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*04:02,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*04:02,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*04:02,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*04:02,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,1,True,4,scored,48,8,16.67
+DRB1*04:08,DRB1,2,True,3,scored,36,11,30.56
+DRB1*04:08,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,1,True,28,scored,324,56,17.28
+DRB1*14:01,DRB1,2,True,5,scored,60,16,26.67
+DRB1*14:01,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,4,True,2,scored,22,16,72.73
+DRB1*14:01,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*11:04,DRB1,1,True,24,scored,288,54,18.75
+DRB1*11:04,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*11:04,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*11:04,DRB1,4,True,2,scored,23,13,56.52
+DRB1*11:04,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*11:04,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*11:04,DRB1,7,False,0,not present in dataset,0,0,
+B*27:51,B,1,True,2,scored,24,5,20.83
+B*27:51,B,2,True,0,not present in dataset,0,0,
+B*27:51,B,3,True,0,not present in dataset,0,0,
+B*27:51,B,4,True,0,not present in dataset,0,0,
+B*27:51,B,5,True,0,not present in dataset,0,0,
+B*27:51,B,6,True,0,not present in dataset,0,0,
+B*27:51,B,7,False,0,not present in dataset,0,0,
+DQB1*05:04,DQB1,1,True,2,scored,24,5,20.83
+DQB1*05:04,DQB1,2,True,0,not present in dataset,0,0,
+DQB1*05:04,DQB1,3,True,0,not present in dataset,0,0,
+DQB1*05:04,DQB1,4,True,0,not present in dataset,0,0,
+DQB1*05:04,DQB1,5,True,0,not present in dataset,0,0,
+DQB1*05:04,DQB1,6,True,0,not present in dataset,0,0,
+DQB1*05:04,DQB1,7,False,0,not present in dataset,0,0,
+DRB1*13:27,DRB1,1,True,2,scored,24,5,20.83
+DRB1*13:27,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*13:27,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*13:27,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*13:27,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*13:27,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*13:27,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*08:01,DRB1,1,True,44,scored,504,95,18.85
+DRB1*08:01,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*08:01,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*08:01,DRB1,4,True,2,scored,22,14,63.64
+DRB1*08:01,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*08:01,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*08:01,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*12:01,DRB1,1,True,19,scored,228,37,16.23
+DRB1*12:01,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*12:01,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*12:01,DRB1,4,True,2,scored,21,14,66.67
+DRB1*12:01,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*12:01,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*12:01,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*04:01,DRB1,1,True,64,scored,720,134,18.61
+DRB1*04:01,DRB1,2,True,47,scored,563,123,21.85
+DRB1*04:01,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*04:01,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*04:01,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*04:01,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*04:01,DRB1,7,False,2,scored,10,9,90.0
+B*27:03,B,1,True,5,scored,60,12,20.0
+B*27:03,B,2,True,0,not present in dataset,0,0,
+B*27:03,B,3,True,0,not present in dataset,0,0,
+B*27:03,B,4,True,0,not present in dataset,0,0,
+B*27:03,B,5,True,0,not present in dataset,0,0,
+B*27:03,B,6,True,0,not present in dataset,0,0,
+B*27:03,B,7,False,0,not present in dataset,0,0,
+DRB1*04:04,DRB1,1,True,51,scored,612,118,19.28
+DRB1*04:04,DRB1,2,True,2,scored,24,8,33.33
+DRB1*04:04,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*04:04,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*04:04,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*04:04,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*04:04,DRB1,7,False,0,not present in dataset,0,0,
+DQB1*06:03,DQB1,1,True,62,scored,732,145,19.81
+DQB1*06:03,DQB1,2,True,0,not present in dataset,0,0,
+DQB1*06:03,DQB1,3,True,0,not present in dataset,0,0,
+DQB1*06:03,DQB1,4,True,0,not present in dataset,0,0,
+DQB1*06:03,DQB1,5,True,0,not present in dataset,0,0,
+DQB1*06:03,DQB1,6,True,0,not present in dataset,0,0,
+DQB1*06:03,DQB1,7,False,1,"present, too few evaluable calls",5,4,
+DQB1*06:09,DQB1,1,True,8,scored,96,19,19.79
+DQB1*06:09,DQB1,2,True,0,not present in dataset,0,0,
+DQB1*06:09,DQB1,3,True,0,not present in dataset,0,0,
+DQB1*06:09,DQB1,4,True,0,not present in dataset,0,0,
+DQB1*06:09,DQB1,5,True,0,not present in dataset,0,0,
+DQB1*06:09,DQB1,6,True,0,not present in dataset,0,0,
+DQB1*06:09,DQB1,7,False,1,"present, too few evaluable calls",5,3,

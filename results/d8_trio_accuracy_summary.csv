@@ -1,0 +1,12 @@
+tool,correct_slots,total_slots,accuracy_2field_unfiltered
+t1k,8,30,26.7
+rna2hla,8,30,26.7
+seq2hla,8,30,26.7
+hlahd,8,30,26.7
+arcas,6,30,20.0
+hlavbseq,6,30,20.0
+optitype,5,30,16.7
+hlaforest,5,30,16.7
+hlapers,4,30,13.3
+hlaminer,0,30,0.0
+hisat,0,30,0.0
