@@ -69,7 +69,42 @@ description in both places.
 
 ## Open
 
-### D7 IS STRUCTURALLY CAPPED AT 7/12 TOOLS — seq2HLA, HLAforest, HLA-HD are hard paired-end-only and D7's BAMs are genuinely single-end
+### `results/standard/T1K_d7.csv` IS DEFECTIVE — T1K CONTRIBUTES NOTHING SCORABLE ON D7 (found 2026-09-21)
+- **Found:** this agent, 2026-09-21, while building the per-dataset figures
+  (Fig. section "Per-dataset figures, D1-D8" at the end of
+  `accuracy_fixed_executed.ipynb`): the D7 column for T1K came out as n/a
+  although the file exists.
+- **What is wrong:** `T1K_d7.csv` has 40 rows for a 20-sample dataset, the
+  sample-ID column is **blank in every row**, and 20 of the 40 rows are all
+  `.` (T1K's no-call placeholder); the other 20 hold allele strings but with
+  no ID to attach them to. An inner merge on sample ID with `7_gs.csv` therefore
+  matches **zero** samples, and every scorer in the repo (pooled or per-dataset)
+  silently skips it. Provenance: the file predates this work (committed
+  2024-09 / 2025-06 by earlier contributors); no raw T1K D7 output exists in
+  the repo, so it cannot be repaired by re-standardizing.
+- **Consequence (and a correction of my own earlier statements):** D7 has
+  **6 scorable tools, not 7**: arcasHLA, HLAminer (17/20 samples), HLApers,
+  HLA-VBSeq, OptiType (19/20 samples; Class I only), RNA2HLA. I previously
+  (a) "corrected" D7's tool count to 7/12 in `results_summary.md` and the
+  notebook's `REDUCED_COVERAGE`, and (b) told the Human PI that T1K was one of
+  five tools verified to cover Class I+II on single-end D7. Both were wrong:
+  the check counted the `.` placeholders as non-empty calls and never noticed
+  the missing IDs / doubled row count. `results_summary.md` and
+  `REDUCED_COVERAGE[7]` now say "6/12 tools scored"; the original "6/12" in
+  older text was closer to the truth than my "7/12".
+- **Likely fix (not done — needs a go-ahead, runs for hours):** T1K natively
+  supports single-end input, so it can be re-run on the 20 existing D7 BAMs
+  (`d7_bams/`), unlike seq2HLA/HLAforest/HLA-HD. That would bring D7 to 7
+  scorable tools.
+- **Same audit surfaced other partial prediction files** (scored only on the
+  samples present; flagged with `*` in the per-dataset figures):
+  D2 seq2HLA 84/86, D4 PHLAT 7/14, D4 HLA-VBSeq 12/14, D4 HLAforest 12/14,
+  D7 OptiType 19/20, D7 HLAminer 17/20. Not investigated (missing samples =
+  tool failure or dropped rows); they are the tools' real coverage on those
+  datasets as the repo stands.
+- **Status: OPEN.**
+
+### D7 IS STRUCTURALLY CAPPED (7 prediction files, 6 scorable — see T1K_d7 entry above) — seq2HLA, HLAforest, HLA-HD are hard paired-end-only and D7's BAMs are genuinely single-end
 - **Found:** this agent, 2026-09-11, root-causing why `datasets/raw/run_d7_remaining_tools.sh`'s
   2026-08-29 attempt at seq2HLA/HLAforest/HLA-HD on D7 failed on every
   sample with cryptic tool-level errors (`gzip: unexpected end of file`,
@@ -107,7 +142,7 @@ description in both places.
   the CLI but fabricate fake mate-pair information these tools use for
   alignment/expression calculations -- not attempted, this would be
   scientifically dishonest, not a fix.
-- **Practical consequence:** D7's 7/12-tool roster (T1K, arcasHLA,
+- **Practical consequence:** D7's 7-file roster (T1K [file defective, see entry above], arcasHLA,
   HLAminer, HLApers, HLA-VBSeq, OptiType, RNA2HLA) is very likely D7's
   **real ceiling**, not a temporary gap -- seq2HLA/HLAforest/HLA-HD are
   structurally excluded by the data's single-end nature (separate from
@@ -146,7 +181,7 @@ description in both places.
   lowest-risk of the three candidate tools; there is no viable path to
   running seq2HLA, HLAforest, or HLA-HD on D7 without patching each
   tool's paired-end assumption or obtaining genuinely paired-end D7 reads.
-  D7's roster is closed at 7/12 unless one of those two happens.
+  D7's roster is closed at 6 scorable tools (7 files) unless one of those two happens.
 
 ### HUMAN-PI DECISION 2026-09-11: D8 IS TO BE INCLUDED IN THE MAIN ANALYSIS — implementation not yet done
 - **Decision:** Nick (Human PI / current project owner per `project_ram_handover`
