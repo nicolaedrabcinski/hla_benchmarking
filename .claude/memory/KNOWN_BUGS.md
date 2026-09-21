@@ -69,6 +69,44 @@ description in both places.
 
 ## Open
 
+### D8 RNA-SEQ INPUT IS A chr6-ONLY EXTRACT (~0.2 M read pairs), NOT THE 90 M-READ RUNS THE MANUSCRIPT DESCRIBES (found 2026-09-21)
+- **Found:** this agent, 2026-09-21, answering "did we mix something up?" about
+  which dataset is in-house. D7/D8 identity is fine (D7 = public SRP162214
+  10x 3' scRNA-seq, Scisco gold standard; D8 = in-house whole-blood trio,
+  PacBio-Revio-derived gold standard). The RNA-seq we scored D8 on is not what
+  the Methods describe.
+- **Manuscript (Methods, "In-House RNA-Seq Data (D8)"):** whole blood, n=3,
+  Poly-A, NovaSeq X, **90 million reads, 2x150 bp**.
+- **What we actually have** (`datasets/raw/d8_rnaseq/{mother,father,daughter}.final.{1,2}.fastq`,
+  68-82 MB each, downloaded from Ram's Drive folder `rnaseq`, files dated
+  2024-08-05; that folder contains nothing else): 198k / 209k / 238k input read
+  pairs per sample (STAR `Log.final.out`) -- ~400x fewer. Read names are real
+  NovaSeq X (`LH00213`), 2x151. **99.9% of the primary alignments are on chr6**
+  (mother 475,354/475,930; father 417,868/418,398; daughter 394,888/395,480;
+  a normal whole-blood library has ~5-6% on chr6), so these are reads
+  pre-extracted from chr6, not a subsample of the whole run.
+- **Coverage of the HLA genes in these files** (reads overlapping the gene,
+  mother / father / daughter): HLA-A 4 / 391 / 19; HLA-B 4361 / 1915 / 1260;
+  HLA-C 206 / 283 / 266; HLA-DRB1 743 / 74 / 95; **HLA-DQB1 465 / 0 / 0**.
+  A locus with 0-19 reads cannot be typed by any tool, so much of what looked
+  like tool failure on D8 (A and DQB1 near 0%, most calls no-call/novel) is a
+  property of the input. Earlier notes (`d8_trio_accuracy.ipynb`, this file,
+  `results_summary.md`) attributed it to "shallow read depth" -- true but
+  incomplete; the extract also has a skewed per-gene profile (why HLA-A has
+  almost no reads while HLA-B has thousands is unexplained).
+- **Consequence:** the 11-tool D8 results (`results/standard/*_d8.csv`) and
+  every D8 figure (including Fig 7 supp c D8 and `Figures/per_dataset/D8/`)
+  measure the tools on a chr6 extract, not on the dataset the manuscript
+  describes. The D8-inclusion decision (E25) was made on the "shallow depth"
+  framing; it should be revisited with this in view.
+- **Also (smaller):** the D8 gold standard is derived from the PacBio reads
+  (hifiasm + Immuannot, Methods). The HLAminer-on-PacBio pilot ran directly on
+  those same reads, so its 20/30 is not an independent-data accuracy.
+- **Needed to fix:** the full-depth D8 FASTQs (Zymo Research / NovaSeq X
+  deliverables) from Ram or whoever holds them; then re-run the 11 tools, the
+  per-dataset figures and the D8 rows. Not obtainable from Drive as it stands.
+- **Status: OPEN.**
+
 ### FIGURE 3b (Class I | Class II accuracy) HAS ITS CLASS I PANEL FLIPPED vs. THE TOOL LABELS — manuscript figure + ISMB slide affected (found 2026-09-21)
 - **Found:** this agent, 2026-09-21, while reproducing the figure per dataset.
   Cell 19 of `accuracy_fixed_executed.ipynb` draws Fig 3b as three axes (Class I
