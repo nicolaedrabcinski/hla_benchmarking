@@ -69,7 +69,7 @@ description in both places.
 
 ## Open
 
-### D8 RNA-SEQ INPUT IS A chr6-ONLY EXTRACT (~0.2 M read pairs), NOT THE 90 M-READ RUNS THE MANUSCRIPT DESCRIBES (found 2026-09-21)
+### D8 RNA-SEQ INPUT IS A chr6-ONLY EXTRACT (~0.2 M read pairs); THE MANUSCRIPT DESCRIBES 90 M-READ RUNS — intent unresolved (found 2026-09-21)
 - **Found:** this agent, 2026-09-21, answering "did we mix something up?" about
   which dataset is in-house. D7/D8 identity is fine (D7 = public SRP162214
   10x 3' scRNA-seq, Scisco gold standard; D8 = in-house whole-blood trio,
@@ -94,6 +94,11 @@ description in both places.
   `results_summary.md`) attributed it to "shallow read depth" -- true but
   incomplete; the extract also has a skewed per-gene profile (why HLA-A has
   almost no reads while HLA-B has thousands is unexplained).
+- **Open question (Human PI's view, 2026-09-21):** Nick believes Ram supplied the
+  intended files, i.e. the chr6 extract may be the deliberate benchmark input and
+  the manuscript's 90 M figure the sequencing run itself; Ram is NOT being
+  contacted. That reading is plausible and unverified either way. What holds
+  regardless is the measurements above.
 - **Consequence:** the 11-tool D8 results (`results/standard/*_d8.csv`) and
   every D8 figure (including Fig 7 supp c D8 and `Figures/per_dataset/D8/`)
   measure the tools on a chr6 extract, not on the dataset the manuscript
@@ -102,10 +107,12 @@ description in both places.
 - **Also (smaller):** the D8 gold standard is derived from the PacBio reads
   (hifiasm + Immuannot, Methods). The HLAminer-on-PacBio pilot ran directly on
   those same reads, so its 20/30 is not an independent-data accuracy.
-- **Needed to fix:** the full-depth D8 FASTQs (Zymo Research / NovaSeq X
-  deliverables) from Ram or whoever holds them; then re-run the 11 tools, the
-  per-dataset figures and the D8 rows. Not obtainable from Drive as it stands.
-- **Status: OPEN.**
+- **If the extract is intended:** no re-run needed, but the Methods should say the
+  benchmark input was a chr6 extract of ~0.2 M read pairs per sample (not 90 M
+  reads), and D8 numbers should be read with the 0-19-reads-at-HLA-A/DQB1
+  limitation in mind. **If not:** the full-depth FASTQs are required and the 11
+  tools, per-dataset figures and D8 rows would be re-run.
+- **Status: OPEN (question of intent, not a confirmed error).**
 
 ### FIGURE 3b (Class I | Class II accuracy) HAS ITS CLASS I PANEL FLIPPED vs. THE TOOL LABELS — manuscript figure + ISMB slide affected (found 2026-09-21)
 - **Found:** this agent, 2026-09-21, while reproducing the figure per dataset.
