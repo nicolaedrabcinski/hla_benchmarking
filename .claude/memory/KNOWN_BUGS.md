@@ -69,6 +69,32 @@ description in both places.
 
 ## Open
 
+### FIGURE 3b (Class I | Class II accuracy) HAS ITS CLASS I PANEL FLIPPED vs. THE TOOL LABELS — manuscript figure + ISMB slide affected (found 2026-09-21)
+- **Found:** this agent, 2026-09-21, while reproducing the figure per dataset.
+  Cell 19 of `accuracy_fixed_executed.ipynb` draws Fig 3b as three axes (Class I
+  bars left, tool names in the middle, Class II bars right). It calls
+  `axL.invert_yaxis()`, then `axR.set_ylim(axL.get_ylim())` followed by
+  `axR.invert_yaxis()` -- the second inversion **undoes** the first on the right
+  panel only. Result: the Class II bars and the centre labels run
+  bottom-to-top, the Class I bars run top-to-bottom, so **every Class I bar
+  pair is drawn next to the wrong tool's name.**
+- **Verified against the numbers, not just by eye** (committed
+  `Figures/fig3b_classI_classII.png`): the row labelled "T1K" shows Class I
+  0.20 / 0.15 -- that is HLAminer (Class I 2-field filtered 15.3%, Table 3),
+  and the row labelled "optitype" shows 0.84 / 0.98 -- that is HLApers'
+  Class I (1-field 84.1%, Table 1; 2-field filtered 98.3%). The Class II panel
+  is correctly aligned (OptiType empty, HLAminer 0.32/0.19). Class I values
+  themselves are right; only their assignment to tool names is wrong.
+- **Where it shows up:** manuscript Fig 3b, and the ISMB 2026 deck's
+  "1- and 2-field accuracy" slide (same code). Table S5 / `results_summary.md`
+  are computed separately and are NOT affected.
+- **Not fixed in the pooled figure (needs a go-ahead: it changes a figure that
+  is already in the manuscript and the deck).** The fix is deleting the two
+  `invert_yaxis()` calls and placing the centre labels at `y=i` instead of
+  `len-1-i`. The new per-dataset Fig 3b files
+  (`Figures/per_dataset/D*/05_*`) already use the corrected layout.
+- **Status: OPEN.**
+
 ### `results/standard/T1K_d7.csv` IS DEFECTIVE — T1K CONTRIBUTES NOTHING SCORABLE ON D7 (found 2026-09-21)
 - **Found:** this agent, 2026-09-21, while building the per-dataset figures
   (Fig. section "Per-dataset figures, D1-D8" at the end of
