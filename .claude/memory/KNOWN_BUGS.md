@@ -69,6 +69,47 @@ description in both places.
 
 ## Open
 
+### Dead code removed: "Old Accuracy" block + "Annotate" section (cleaned 2026-09-22)
+- **Found:** this agent, 2026-09-22, continuing the "what else is wrong in this
+  notebook" audit (see the `:xx`-fix entry above from the same day). Two blocks
+  were fully orphaned -- defined, but their output never consumed by anything
+  else in the notebook:
+  - The "Old Accuracy" block (`calculate_accuracy`, `compare_allele_pair`,
+    `compare_allele_pair_filtered`, `get_dynamic_loci_from_gs`): its only caller
+    was a diagnostic cell ("Accuracy by Dataset", building `df_results`) that
+    itself was never read by any later cell -- print-only, dead end.
+  - The "Annotate" section (hla.dat parsing + a REST-API annotation call):
+    built `df_mis_copy` and various HLA metadata, never referenced afterward.
+  Initially mis-investigated: this agent first believed `calculate_accuracy`
+  was a live dependency of the Fig 9 ancestry cell because both define a
+  function with that exact name -- they are two unrelated implementations
+  that happen to collide on the name (yet another instance of the "same name,
+  different cell, different behavior" fragility already flagged for
+  `reformat_allele`/`score_pair`). Verified by tracing every call site before
+  deleting anything.
+- **A real, if now-moot, bug lived in the dead diagnostic cell**: `calculate_accuracy`
+  built `gs_set` from `reformat_allele(...)` but never dropped `None` from it,
+  so the 2026-07-25 `:xx` fix (a shared global name -- see the entry above)
+  made this specific function crash with `'NoneType' object has no attribute
+  'strip'` on dataset 3's `A*68:xx`/`B*55:xx`. The diagnostic cell's own
+  `try/except Exception` silently swallowed this and dropped D3 entirely for
+  all 7 tools from `df_results` -- undetected for ~2 months because nothing
+  downstream read that dataframe. Moot now that the whole block is deleted,
+  but a good concrete example of why the duplicated-helper fragility flagged
+  elsewhere is worth taking seriously.
+- **Fixed** (Human-PI authorized: Nick, "Исправляй"): deleted both dead
+  blocks outright (not commented out) -- "Old Accuracy" heading + code +
+  its diagnostic caller, and the whole "Annotate" section (hla.dat +
+  API-annotation cells). Also deleted 3 stale markdown placeholder cells
+  reading "*Removed duplicate ancestry analysis*" left over from an earlier
+  cleanup pass. Re-executed the full notebook top to bottom: zero errors.
+  Every changed `Figures/*.svg` had a byte-identical `.png` twin (cosmetic
+  matplotlib metadata noise, reverted); `results/allele_miscall_by_dataset.csv`
+  changed only in row order among exact ties (sorted-file diff is empty,
+  reverted). No figure or manuscript number is affected by this cleanup --
+  it removed code that was never on the path to any of them.
+- **Status: RESOLVED.**
+
 ### `:xx` GOLD-STANDARD-FIX WAS MISSING FROM 3 INDEPENDENT `reformat_allele` COPIES (Fig 5, 6a, 6b, 6c) — fixed, zero numeric effect (found+fixed 2026-09-22)
 - **Found:** this agent, 2026-09-22, auditing the whole notebook for "what else is
   wrong" after the Fig 3b panel-flip finding. `reformat_allele` is redefined
