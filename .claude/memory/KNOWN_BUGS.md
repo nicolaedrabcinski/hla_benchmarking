@@ -69,6 +69,49 @@ description in both places.
 
 ## Open
 
+### `:xx` GOLD-STANDARD-FIX WAS MISSING FROM 3 INDEPENDENT `reformat_allele` COPIES (Fig 5, 6a, 6b, 6c) — fixed, zero numeric effect (found+fixed 2026-09-22)
+- **Found:** this agent, 2026-09-22, auditing the whole notebook for "what else is
+  wrong" after the Fig 3b panel-flip finding. `reformat_allele` is redefined
+  independently in 15 cells across the notebook; only 4 (cells 7, 23, and the two
+  feeding Fig 7's top-20 table) carried the 2026-07-25 Human-PI-authorized `:xx`
+  fix (a gold-standard second field that is literally `"xx"` -- HLA nomenclature
+  for "field 2 unresolved", currently only `A*68:xx`/`B*55:xx` in D3 -- must drop
+  out of scoring instead of counting as an unwinnable miss). The copies feeding
+  **Fig 5** (`compute_locus_metrics`), **Fig 6a/6b** (same function), and **Fig
+  6c v1/v2/v3** (`compute_mis_by_ds_per_locus`, two separate copies) did not have
+  it.
+- **Fixed** (Human-PI authorized: Nick, "Исправляй"): `reformat_allele` now
+  returns `None` for a literal `"xx"` second field in all three locations;
+  `build_global_valid` skips `None` before adding to the valid-allele set;
+  `score_pair` discards `None` from `gs_set` and returns `None` (caller skips
+  the slot, not counted in the denominator) when nothing is left. Same contract
+  as the canonical scorer (cell 7). Explanatory comments were moved out of the
+  code and into markdown cells above each fixed section, per Nick's standing
+  instruction for this notebook.
+- **Verified to have zero numeric effect on the current data, and said so
+  plainly rather than assuming impact from the earlier report in chat.**
+  `compute_locus_metrics`/`compute_mis_by_ds_per_locus` tally *predicted*
+  alleles against *set membership* in `gs_set`; an unmatchable `"A*68:xx"`
+  sitting in that set was never something any tool could hit anyway, so its
+  presence never changed any `correct`/`miscalled`/`novel` count -- unlike
+  `compute_allele_misclassification_rate` (Fig 7's already-fixed table), which
+  tallies *per individual GS-allele name* and therefore did show a real, if
+  small, effect when originally fixed in July. Confirmed by diff: re-executed
+  the full notebook and every `Figures/*.png` (Fig 5, 6a, 6b, 6c v1-v3) came out
+  byte-identical to the pre-fix committed versions; only the notebook's own
+  source changed. The fix is still correct and worth keeping -- it closes a
+  latent risk (if a locus's *entire* GS pair were ever `"xx"/"xx"`, or if this
+  code is ever pointed at a dataset with more `:xx` tokens, the old code would
+  silently mis-score it) and removes an inconsistency with the rest of the
+  notebook, it just doesn't move any number today.
+- **Separately noticed while diffing figures, not part of this fix:**
+  `fig7_misclassification_rate.png` differs in raw PNG bytes from the committed
+  version on every re-run even though the dataframe driving it (`df_mis`,
+  verified via its printed `repr`) is byte-for-byte identical, same row order,
+  every time -- a rendering-only nondeterminism (not data), left uninvestigated
+  and reverted rather than committed.
+- **Status: RESOLVED (fix applied, verified inert on current data).**
+
 ### D8 RNA-SEQ INPUT IS A chr6-ONLY EXTRACT (~0.2 M read pairs); THE MANUSCRIPT DESCRIBES 90 M-READ RUNS — intent unresolved (found 2026-09-21)
 - **Found:** this agent, 2026-09-21, answering "did we mix something up?" about
   which dataset is in-house. D7/D8 identity is fine (D7 = public SRP162214
