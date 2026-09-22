@@ -69,6 +69,52 @@ description in both places.
 
 ## Open
 
+### Hardened remaining ":xx" copies (Fig 8-11) + removed 2 more dead diagnostic cells (2026-09-22)
+- **Continuation of the "Делай" consolidation task** (see the two entries above
+  from the same day). Traced every remaining copy of `reformat_allele`/
+  `get_dynamic_loci`/`build_global_valid`/`score_pair` across the notebook
+  (14 sites total) and found they split cleanly into two groups:
+  - Cells feeding Fig 3-4/5/6/7 (the pooled D1-D6 figures): already correct,
+    byte-for-byte identical to the canonical version modulo whitespace/
+    docstrings/type hints. Each carries an explicit "COPY OVER BULK-SCORING
+    HELPERS" / "verbatim from cell..." comment -- this duplication is
+    **deliberate**, not an oversight: it keeps each figure's cell readable
+    and reproducible on its own, without tracing execution order across the
+    whole notebook. Left untouched; added a markdown note (right after the
+    "# Helper Functions" heading) documenting this convention and the
+    invariant every copy must satisfy, so the next person (or agent) doesn't
+    have to rediscover it from scratch.
+  - Cells feeding Fig 8 (read-length), Fig 9/9b (ancestry bulk), Fig 10
+    (ancestry by locus), Fig 11 (ancestral misclassification): still missing
+    the `:xx`->`None` handling. Applied the same fix used above (return
+    `None` for a literal "xx" second field; discard `None` from `gs_set`/
+    `valid[...]`; skip the slot -- via a `None`-sentinel return from
+    `score_pair`, or an early `continue`, depending on the cell's own
+    structure -- rather than crash or silently mis-score it). One cell
+    (Fig 9's `calculate_accuracy`) also had `total += 2` incremented
+    *before* the now-possible skip; reordered so a skipped slot is excluded
+    from the denominator too, matching the canonical contract exactly.
+- **Also found and removed 2 more dead diagnostic cells**: Fig 11 had three
+  candidate implementations sharing the same shape (`compute_allele_
+  misclassification_rate_by_ancestry` x2, `compute_ancestry_miscall_by_tool`
+  x1) -- only the last one's output (`df_anc`) actually feeds the saved
+  `fig11_ancestral_misclassification_rate.png/svg`; the first two
+  (`df_dist`, `df_mis_by_anc`) were never read by anything else. Deleted
+  both, same reasoning as the "Old Accuracy"/"Annotate" removals earlier
+  today.
+- **Verified inert on current data, not just by construction**: Fig 8 uses
+  `readlength_gs.csv` (zero `:xx` tokens, confirmed by grep); Fig 9/9b/10/11
+  are hardcoded to dataset 1 only (`SraRunTableD1.txt` is the only run table
+  with a `Population` column); `:xx` tokens exist only in dataset 3. Re-ran
+  the full notebook end to end: zero errors, and every changed `Figures/*`
+  file was either a cosmetic SVG (byte-identical PNG twin) or the one known
+  render-nondeterministic PNG (`fig7_misclassification_rate.png`, already
+  characterized earlier today as differing in bytes despite byte-identical
+  underlying dataframe output); `results/allele_miscall_by_dataset.csv`
+  again changed only in tie-order (sorted-file diff empty). All reverted;
+  only the notebook's source changed.
+- **Status: RESOLVED.**
+
 ### Dead code removed: "Old Accuracy" block + "Annotate" section (cleaned 2026-09-22)
 - **Found:** this agent, 2026-09-22, continuing the "what else is wrong in this
   notebook" audit (see the `:xx`-fix entry above from the same day). Two blocks
