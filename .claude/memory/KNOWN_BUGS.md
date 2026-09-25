@@ -268,7 +268,15 @@ description in both places.
   `invert_yaxis()` calls and placing the centre labels at `y=i` instead of
   `len-1-i`. The new per-dataset Fig 3b files
   (`Figures/per_dataset/D*/05_*`) already use the corrected layout.
-- **Status: OPEN.**
+- **Resolved 2026-09-25 (Nick: "вообще отказаться от панелей, каждый график
+  отдельно"):** the pooled figure is no longer a three-axis composite. It is now
+  two standalone charts, `Figures/fig3b_classI.*` and `fig3b_classII.*`, with the
+  tool names on their own y-axis, so there is nothing left to mis-align. Checked
+  against the numbers: hlaminer Class I 0.20 / 0.15 and hlapers 0.84 / 0.98 now sit
+  next to their own names. The old `fig3b_classI_classII.*` was deleted (still in
+  git history). The manuscript figure and the ISMB slide still embed the OLD
+  image and need replacing.
+- **Status: FIXED in the notebook; manuscript figure + ISMB slide still to replace.**
 
 ### `results/standard/T1K_d7.csv` IS DEFECTIVE — T1K CONTRIBUTES NOTHING SCORABLE ON D7 (found 2026-09-21)
 - **Found:** this agent, 2026-09-21, while building the per-dataset figures
