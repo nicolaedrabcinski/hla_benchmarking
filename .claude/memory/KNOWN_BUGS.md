@@ -69,6 +69,26 @@ description in both places.
 
 ## Open
 
+### FIGURE 11 (ancestral misclassification rate) WAS EMPTY, AND NEVER SEPARATED EUROPE FROM YORUBA — manuscript figure affected (found + fixed in notebook 2026-09-25)
+- **Found:** this agent, 2026-09-25, while turning Fig 11's row-per-axis ridge plot into a
+  single-axis chart. The committed `Figures/fig11_ancestral_misclassification_rate.png`
+  shows ONE row (optitype) and no curves at all.
+- **Bug 1 (data lost):** `compute_ancestry_miscall_by_tool` merged the gold standard with a
+  prediction table whose columns are named exactly like the gold standard (`A`, `A.1`, ...)
+  without renaming them, so pandas turned every shared name into `A_x` / `A_y`. The code
+  then looked up `A` and `A_pre`, found nothing, and skipped the locus. Only optitype's
+  DRB1/DQB1 (absent from its table, so no name clash) survived, scored as all-miscalled.
+  Other figures rename prediction columns to `*_pre` before the merge and were not affected.
+- **Bug 2 (ancestry ignored):** the plotting loop ran `for grp, col in anc_palette.items()`
+  but took each tool's values with no filter on `grp`, so Europe and Yoruba were drawn from
+  the same numbers (identical curves). This was invisible while Bug 1 hid everything.
+- **Fixed in the notebook** (Nick: "вообще отказаться от панелей"): prediction columns are
+  renamed to `*_pre` before the merge, values are filtered by group, and the figure is now a
+  single-axis ridgeline. It now shows all 8 tools with visibly different Europe vs Yoruba
+  curves. **The manuscript figure and any text that describes it were made from the broken
+  version and must be re-checked against the new one.**
+- **Status: FIXED in the notebook; manuscript figure + its description still to replace/re-check.**
+
 ### Hardened remaining ":xx" copies (Fig 8-11) + removed 2 more dead diagnostic cells (2026-09-22)
 - **Continuation of the "Делай" consolidation task** (see the two entries above
   from the same day). Traced every remaining copy of `reformat_allele`/
