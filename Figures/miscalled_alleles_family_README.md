@@ -32,7 +32,7 @@ longer exist either.
 | Panel | File (png+svg pair, `Figures/`) | Drawn by (in `accuracy_fixed_executed.ipynb`) | What it shows |
 |---|---|---|---|
 | **a** | `fig7_supp_a_heatmap` | `plot_heatmap()` | Allele × Dataset heatmap of the **pooled top-20** alleles' miscall rate, broken down by dataset. Reds colormap, `not present` (hatched grey) vs `present but <6 evaluable calls` (pale grey) vs scored (colour + printed %) three-way state. |
-| **b** | `fig7_supp_b_small_multiples` | `plot_small_multiples()` | Same pooled top-20 alleles, one small bar-chart panel **per allele**, bars = datasets, locus-coloured. |
+| **b** | `fig7_supp_b/` (one file per allele) | `plot_small_multiples()` | Same pooled top-20 alleles, one standalone bar chart **per allele** (no grid), bars = datasets, locus-coloured. |
 | **c** | `fig7_supp_c_D1` … `_D7` (7 separate files, not one combined image — see §2d) | `plot_single_dataset()` | Original Figure 7 bar-chart grammar repeated **once per dataset**, each ranked **independently on that dataset's own data** (not a re-slice of the pooled top-20). D7 carries an amber title (subtitle removed, §2g). |
 | **d** | `fig7_supp_d_grouped_bars` | `plot_variant1()` | Pooled top-20 alleles again, horizontal **grouped/clustered bars** — one cluster per allele, one sub-bar per dataset in which it is scorable; dashed tick = the single pooled rate panel a/b are built from. |
 | **e** | `fig7_supp_e_slopeplot` | `plot_variant2()` | Pooled top-20 alleles, **slope/dot plot** across datasets (x = dataset, y = % miscalled), coloured by locus, direct-labelled. Segments only join adjacent scored datasets — never interpolated across an absent dataset. |
@@ -598,7 +598,7 @@ Two separate actions:
    | Old | New |
    |---|---|
    | `miscalled_alleles_per_dataset_heatmap` | `fig7_supp_a_heatmap` |
-   | `miscalled_alleles_per_dataset_bars` | `fig7_supp_b_small_multiples` |
+   | `miscalled_alleles_per_dataset_bars` | `fig7_supp_b/` (one file per allele) |
    | `miscalled_alleles_top_D1` … `_D7` | `fig7_supp_c_D1` … `_D7` |
    | `miscalled_alleles_variant1_grouped_bars` | `fig7_supp_d_grouped_bars` |
    | `miscalled_alleles_variant2_slopeplot` | `fig7_supp_e_slopeplot` |
