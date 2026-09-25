@@ -17,7 +17,7 @@ a figure, or a slide until they have. Two items below are flagged for
 |---|---|
 | Re-runnable analysis script | `notebooks/fig7_per_dataset_miscall.py` |
 | Heatmap (allele × dataset) | `Figures/fig7_supp_a_heatmap.png` |
-| Small-multiple bar charts | `Figures/fig7_supp_b_small_multiples.png` |
+| Small-multiple bar charts | `Figures/fig7_supp_b/` (one file per allele) |
 | Full per-(Dataset, Locus, Allele) tally | `results/allele_miscall_by_dataset.csv` |
 | Top-20 × dataset breakdown | `results/allele_miscall_top20_by_dataset.csv` |
 | Top-20 universal/dataset-specific classification | `results/allele_miscall_top20_classification.csv` |
