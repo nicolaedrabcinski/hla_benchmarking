@@ -1,2 +1,5 @@
 .ipynb_checkpoints
 __pycache__
+europe_gs.csv
+yoruba_gs.csv
+phase_ambiguity_summary.csv
