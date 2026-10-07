@@ -1,0 +1,23 @@
+# Environment for running notebooks/accuracy_fixed_executed.ipynb (analysis, figures,
+# results tables only -- NOT for running the 12 HLA callers themselves; those need
+# scripts/environmental_files/ per-tool conda environments, see note below).
+#
+# Install with uv:
+#   uv venv
+#   uv pip install -r requirements.txt
+#
+# Then run the notebook:
+#   uv run jupyter nbconvert --to notebook --execute --inplace \
+#       notebooks/accuracy_fixed_executed.ipynb
+#
+# Versions pinned to what this notebook is actually verified against (2026-10-07).
+pandas==3.0.3
+numpy==2.4.6
+scipy==1.17.1
+statsmodels==0.14.6
+matplotlib==3.10.9
+seaborn==0.13.2
+ipykernel==7.3.0
+nbconvert==7.17.1
+nbclient==0.11.0
+nbformat==5.10.4
