@@ -1,21 +1,21 @@
 Allele,Locus,PooledMisclassificationRate%,PooledTotalCalls,PresentInDatasets,DatasetsPresent_D1toD6,DatasetsElevated_D1toD6(>30%),Classification_D1toD6
 DQB1*06:05,DQB1,52.38,84,D1,1,1,not assessable (single dataset)
 C*03:05,C,41.67,12,D3,1,1,not assessable (single dataset)
-C*06:06,C,41.67,12,D3,1,1,not assessable (single dataset)
+C*06:06,C,33.33,12,D3,1,1,not assessable (single dataset)
 B*41:04,B,25.0,24,D1,1,0,not assessable (single dataset)
 DRB1*13:21,DRB1,25.0,12,D1,1,0,not assessable (single dataset)
 DRB1*08:04,DRB1,24.31,144,D1+D7,1,0,not assessable (single dataset)
 DRB1*04:02,DRB1,23.33,60,D1+D8,1,0,not assessable (single dataset)
-DRB1*04:08,DRB1,22.62,84,D1+D2,2,1,dataset-specific
-DRB1*14:01,DRB1,21.67,406,D1+D2+D4,3,1,dataset-specific
 DRB1*11:04,DRB1,21.54,311,D1+D4+D8,2,1,dataset-specific
+DRB1*14:01,DRB1,20.94,406,D1+D2+D4,3,1,dataset-specific
 B*27:51,B,20.83,24,D1,1,0,not assessable (single dataset)
 DQB1*05:04,DQB1,20.83,24,D1,1,0,not assessable (single dataset)
 DRB1*13:27,DRB1,20.83,24,D1,1,0,not assessable (single dataset)
 DRB1*08:01,DRB1,20.72,526,D1+D4,2,1,dataset-specific
 DRB1*12:01,DRB1,20.48,249,D1+D4,2,1,dataset-specific
-DRB1*04:01,DRB1,20.03,1283,D1+D2+D7,2,0,not elevated anywhere
+DRB1*04:08,DRB1,20.24,84,D1+D2,2,0,not elevated anywhere
 B*27:03,B,20.0,60,D1,1,0,not assessable (single dataset)
 DRB1*04:04,DRB1,19.81,636,D1+D2,2,1,dataset-specific
 DQB1*06:03,DQB1,19.81,732,D1+D7,1,0,not assessable (single dataset)
 DQB1*06:09,DQB1,19.79,96,D1+D7,1,0,not assessable (single dataset)
+DRB1*03:02,DRB1,19.7,132,D1,1,0,not assessable (single dataset)

@@ -17,7 +17,7 @@ C*03:05,C,7,False,0,not present in dataset,0,0,
 C*03:05,C,8,False,0,not present in dataset,0,0,
 C*06:06,C,1,True,0,not present in dataset,0,0,
 C*06:06,C,2,True,0,not present in dataset,0,0,
-C*06:06,C,3,True,1,scored,12,5,41.67
+C*06:06,C,3,True,1,scored,12,4,33.33
 C*06:06,C,4,True,0,not present in dataset,0,0,
 C*06:06,C,5,True,0,not present in dataset,0,0,
 C*06:06,C,6,True,0,not present in dataset,0,0,
@@ -55,22 +55,6 @@ DRB1*04:02,DRB1,5,True,0,not present in dataset,0,0,
 DRB1*04:02,DRB1,6,True,0,not present in dataset,0,0,
 DRB1*04:02,DRB1,7,False,0,not present in dataset,0,0,
 DRB1*04:02,DRB1,8,False,2,scored,22,11,50.0
-DRB1*04:08,DRB1,1,True,4,scored,48,8,16.67
-DRB1*04:08,DRB1,2,True,3,scored,36,11,30.56
-DRB1*04:08,DRB1,3,True,0,not present in dataset,0,0,
-DRB1*04:08,DRB1,4,True,0,not present in dataset,0,0,
-DRB1*04:08,DRB1,5,True,0,not present in dataset,0,0,
-DRB1*04:08,DRB1,6,True,0,not present in dataset,0,0,
-DRB1*04:08,DRB1,7,False,0,not present in dataset,0,0,
-DRB1*04:08,DRB1,8,False,0,not present in dataset,0,0,
-DRB1*14:01,DRB1,1,True,28,scored,324,56,17.28
-DRB1*14:01,DRB1,2,True,5,scored,60,16,26.67
-DRB1*14:01,DRB1,3,True,0,not present in dataset,0,0,
-DRB1*14:01,DRB1,4,True,2,scored,22,16,72.73
-DRB1*14:01,DRB1,5,True,0,not present in dataset,0,0,
-DRB1*14:01,DRB1,6,True,0,not present in dataset,0,0,
-DRB1*14:01,DRB1,7,False,0,not present in dataset,0,0,
-DRB1*14:01,DRB1,8,False,0,not present in dataset,0,0,
 DRB1*11:04,DRB1,1,True,24,scored,288,54,18.75
 DRB1*11:04,DRB1,2,True,0,not present in dataset,0,0,
 DRB1*11:04,DRB1,3,True,0,not present in dataset,0,0,
@@ -79,6 +63,14 @@ DRB1*11:04,DRB1,5,True,0,not present in dataset,0,0,
 DRB1*11:04,DRB1,6,True,0,not present in dataset,0,0,
 DRB1*11:04,DRB1,7,False,0,not present in dataset,0,0,
 DRB1*11:04,DRB1,8,False,2,scored,22,11,50.0
+DRB1*14:01,DRB1,1,True,28,scored,324,56,17.28
+DRB1*14:01,DRB1,2,True,5,scored,60,13,21.67
+DRB1*14:01,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,4,True,2,scored,22,16,72.73
+DRB1*14:01,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*14:01,DRB1,8,False,0,not present in dataset,0,0,
 B*27:51,B,1,True,2,scored,24,5,20.83
 B*27:51,B,2,True,0,not present in dataset,0,0,
 B*27:51,B,3,True,0,not present in dataset,0,0,
@@ -119,14 +111,14 @@ DRB1*12:01,DRB1,5,True,0,not present in dataset,0,0,
 DRB1*12:01,DRB1,6,True,0,not present in dataset,0,0,
 DRB1*12:01,DRB1,7,False,0,not present in dataset,0,0,
 DRB1*12:01,DRB1,8,False,0,not present in dataset,0,0,
-DRB1*04:01,DRB1,1,True,64,scored,720,134,18.61
-DRB1*04:01,DRB1,2,True,47,scored,563,123,21.85
-DRB1*04:01,DRB1,3,True,0,not present in dataset,0,0,
-DRB1*04:01,DRB1,4,True,0,not present in dataset,0,0,
-DRB1*04:01,DRB1,5,True,0,not present in dataset,0,0,
-DRB1*04:01,DRB1,6,True,0,not present in dataset,0,0,
-DRB1*04:01,DRB1,7,False,2,scored,12,9,75.0
-DRB1*04:01,DRB1,8,False,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,1,True,4,scored,48,8,16.67
+DRB1*04:08,DRB1,2,True,3,scored,36,9,25.0
+DRB1*04:08,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*04:08,DRB1,8,False,0,not present in dataset,0,0,
 B*27:03,B,1,True,5,scored,60,12,20.0
 B*27:03,B,2,True,0,not present in dataset,0,0,
 B*27:03,B,3,True,0,not present in dataset,0,0,
@@ -159,3 +151,11 @@ DQB1*06:09,DQB1,5,True,0,not present in dataset,0,0,
 DQB1*06:09,DQB1,6,True,0,not present in dataset,0,0,
 DQB1*06:09,DQB1,7,False,1,scored,6,3,50.0
 DQB1*06:09,DQB1,8,False,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,1,True,11,scored,132,26,19.7
+DRB1*03:02,DRB1,2,True,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,3,True,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,4,True,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,5,True,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,6,True,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,7,False,0,not present in dataset,0,0,
+DRB1*03:02,DRB1,8,False,0,not present in dataset,0,0,

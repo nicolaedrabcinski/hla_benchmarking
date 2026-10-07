@@ -192,7 +192,7 @@ Dataset,Resolution,Tool,Locus,FilePresent,NMatched,correct,miscalled,novel,no_ca
 2,2,seq2hla,A,True,84,0,0,0,0,0,I
 2,2,seq2hla,B,True,84,0,0,0,0,0,I
 2,2,seq2hla,C,True,84,0,0,0,0,0,I
-2,2,seq2hla,DRB1,True,84,49,20,99,0,168,II
+2,2,seq2hla,DRB1,True,84,96,50,22,0,168,II
 2,2,seq2hla,DQB1,True,84,0,0,0,0,0,II
 2,2,hlaminer,A,True,86,0,0,0,0,0,I
 2,2,hlaminer,B,True,86,0,0,0,0,0,I
@@ -309,9 +309,9 @@ Dataset,Resolution,Tool,Locus,FilePresent,NMatched,correct,miscalled,novel,no_ca
 3,2,optitype,C,True,50,96,3,1,0,100,I
 3,2,optitype,DRB1,True,50,0,0,0,0,0,II
 3,2,optitype,DQB1,True,50,0,0,0,0,0,II
-3,2,seq2hla,A,True,50,76,0,24,0,100,I
-3,2,seq2hla,B,True,50,69,5,26,0,100,I
-3,2,seq2hla,C,True,50,66,1,33,0,100,I
+3,2,seq2hla,A,True,50,94,2,4,0,100,I
+3,2,seq2hla,B,True,50,91,7,2,0,100,I
+3,2,seq2hla,C,True,50,92,4,4,0,100,I
 3,2,seq2hla,DRB1,True,50,0,0,0,0,0,II
 3,2,seq2hla,DQB1,True,50,0,0,0,0,0,II
 3,2,hlaminer,A,True,50,5,42,49,4,100,I
@@ -432,7 +432,7 @@ Dataset,Resolution,Tool,Locus,FilePresent,NMatched,correct,miscalled,novel,no_ca
 4,2,seq2hla,A,True,14,0,0,0,0,0,I
 4,2,seq2hla,B,True,14,0,0,0,0,0,I
 4,2,seq2hla,C,True,14,0,0,0,0,0,I
-4,2,seq2hla,DRB1,True,14,3,0,25,0,28,II
+4,2,seq2hla,DRB1,True,14,9,0,19,0,28,II
 4,2,seq2hla,DQB1,True,14,0,0,0,0,0,II
 4,2,hlaminer,A,True,14,0,0,0,0,0,I
 4,2,hlaminer,B,True,14,0,0,0,0,0,I
@@ -551,7 +551,7 @@ Dataset,Resolution,Tool,Locus,FilePresent,NMatched,correct,miscalled,novel,no_ca
 5,2,optitype,DQB1,True,8,0,0,0,0,0,II
 5,2,seq2hla,A,True,8,0,0,0,0,0,I
 5,2,seq2hla,B,True,8,0,0,0,0,0,I
-5,2,seq2hla,C,True,8,10,0,6,0,16,I
+5,2,seq2hla,C,True,8,12,0,4,0,16,I
 5,2,seq2hla,DRB1,True,8,0,0,0,0,0,II
 5,2,seq2hla,DQB1,True,8,0,0,0,0,0,II
 5,2,hlaminer,A,True,8,0,0,0,0,0,I
