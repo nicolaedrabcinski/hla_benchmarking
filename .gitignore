@@ -33,3 +33,8 @@ datasets/raw/*.log
 *.bak
 *.bak_*
 *_backup/
+
+# Sibling working directories that now live inside the repo root after
+# flattening repo/ up a level (2026-10-08) -- never meant to be tracked.
+/tools/
+/.venv/
