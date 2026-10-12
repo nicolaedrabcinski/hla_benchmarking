@@ -137,6 +137,26 @@ supervisor's Google Doc comments, per-tool standardisation scripts, Results numb
 - [ ] **F19 — Ancestry analyses use D1 only, by design.** Only D1 has population metadata (`datasets/archive/SraRunTableD1.txt`). Document as a limitation in Methods; no code change.
 - [ ] **F20 — results/optimization/ parameter sweep may not have varied the actual parameter, MEDIUM/HIGH.** OptiType (`optitype_optim_0.004/0.009/0.014.csv`) and RNA2HLA (`rna2hla_optim_5/10/15.csv`) give byte-identical output across all 3 labeled parameter values on 50 real samples (ERR188xxx, `accession/optimization_accessions.txt`) -- arcasHLA and HLA-VBSeq (also swept) mostly vary normally, so this isn't a general tooling issue. Root cause investigated 2026-10-12: **OptiType** -- manuscript Table 3 lists `--beta` as the swept CLI parameter, but OptiType has no such command-line flag; beta is set inside `config.ini`, and Table 3's own example command points to one static `OptiType/config.ini`. If the original sweep never generated 3 distinct config files (or always pointed `-c` at the same one), all three "beta" runs would be mechanically identical regardless of filename -- matches the observed output exactly. High-confidence explanation, not yet confirmed by re-running. **RNA2HLA** -- `-3` (trim) is a real, correctly-wired CLI flag (verified in `tools/RNA2HLA/RNA2HLA.py` / `paired_end.py`: flows through to `bowtie -3 <N>`), so this one may be a genuine negative result (small 3' trims not changing 2-field calls) rather than a bug; can't distinguish without re-running. Original sweep execution script not in the repo (not trackable). Re-running the full sweep properly is expensive: OptiType median 2360s/sample x 50 samples x 3 configs ~= 98h sequential; RNA2HLA median 252s/sample x 50 x 3 ~= 10.5h; FASTQs for these 50 accessions are not currently on disk and would need downloading first. **Spot-check in progress** (2-3 samples, explicit distinct config.ini values) to cheaply confirm/refute the OptiType hypothesis before committing to a full re-run. Any manuscript claim of the form "parameter optimization yielded [no/minimal] improvement" should be treated as unverified until this is resolved -- it may currently reflect a sweep execution defect rather than a real tool property.
 
+  **Spot-check result (2026-10-12, 1 sample, ERR188021, 32M read pairs, D1):** Ran OptiType
+  twice with explicitly different `--beta` (0.004 vs 0.014). **First attempt failed outright** --
+  this environment's `glpsol` is v4.57, but Pyomo requires >=4.58; every OptiType run here crashes
+  at the ILP-solve step with the default `glpk` solver (the same solver the manuscript's documented
+  run command implies, no `--solver` override shown). Switched to `--solver cbc` (also installed)
+  to get a result at all. With cbc: **beta does work** -- the ILP objective value differs between
+  the two runs (34845.77 vs 33787.70, confirming the parameter reaches the solver) -- but **the
+  final called alleles were identical** (A\*01:01/24:02, B\*41:02/57:01, C\*06:02/17:01 both times),
+  because beta is specifically a homozygosity-detection threshold and this sample is clearly
+  heterozygous at all 3 loci, so there's no ambiguity for it to resolve. One sample not flipping is
+  expected and doesn't by itself confirm or refute whether beta affects *any* of the real 50-sample
+  sweep.
+  **New, more likely root cause:** if whoever ran the original 50-sample sweep had the same
+  glpk/Pyomo incompatibility (plausible -- glpk is the documented default, nothing suggests cbc was
+  used), every one of those labeled runs may have crashed identically regardless of beta, and the
+  byte-identical "results" could be a leftover/reused file from one successful run (manual or
+  scripted) copied across 3 filenames -- more parsimonious than "beta has zero effect," and testable:
+  re-running the full 50-sample sweep with `--solver cbc` would settle it, but that's still the
+  ~full-rerun cost estimated above, not done.
+
 ## Resolved (pipeline/investigative — no manuscript text pending)
 
 - [x] **Novel-allele definition** — cohort-based (not IMGT-DB-based); confirmed via `gs_set` vs `valid_set` logic.
