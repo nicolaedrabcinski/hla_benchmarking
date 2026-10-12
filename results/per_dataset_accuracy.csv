@@ -297,7 +297,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,1-field,unfiltered,hisat,not run,0,,,
 7,20,1-field,unfiltered,hlaforest,not run,0,,,
 7,20,1-field,unfiltered,hlapers,scored,20,0.800000,0.783333,0.825000
-7,20,1-field,unfiltered,T1K,unusable,0,,,
+7,20,1-field,unfiltered,T1K,scored,20,0.960000,0.941667,0.987500
 7,20,1-field,unfiltered,rna2hla,scored,20,0.555000,0.408333,0.775000
 7,20,1-field,filtered,arcas,scored,20,0.437186,0.327731,0.600000
 7,20,1-field,filtered,optitype,partial,19,0.286486,0.486239,0.000000
@@ -309,7 +309,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,1-field,filtered,hisat,not run,0,,,
 7,20,1-field,filtered,hlaforest,not run,0,,,
 7,20,1-field,filtered,hlapers,scored,20,0.860215,0.783333,1.000000
-7,20,1-field,filtered,T1K,unusable,0,,,
+7,20,1-field,filtered,T1K,scored,20,0.960000,0.941667,0.987500
 7,20,1-field,filtered,rna2hla,scored,20,0.616667,0.490000,0.775000
 7,20,2-field,unfiltered,arcas,scored,20,0.195000,0.175000,0.225000
 7,20,2-field,unfiltered,optitype,partial,19,0.231579,0.385965,0.000000
@@ -321,7 +321,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,2-field,unfiltered,hisat,not run,0,,,
 7,20,2-field,unfiltered,hlaforest,not run,0,,,
 7,20,2-field,unfiltered,hlapers,scored,20,0.410000,0.350000,0.500000
-7,20,2-field,unfiltered,T1K,unusable,0,,,
+7,20,2-field,unfiltered,T1K,scored,20,0.705000,0.600000,0.862500
 7,20,2-field,unfiltered,rna2hla,scored,20,0.415000,0.275000,0.625000
 7,20,2-field,filtered,arcas,scored,20,0.260000,0.212121,0.352941
 7,20,2-field,filtered,optitype,partial,19,0.257310,0.463158,0.000000
@@ -333,7 +333,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,2-field,filtered,hisat,not run,0,,,
 7,20,2-field,filtered,hlaforest,not run,0,,,
 7,20,2-field,filtered,hlapers,scored,20,0.987952,1.000000,0.975610
-7,20,2-field,filtered,T1K,unusable,0,,,
+7,20,2-field,filtered,T1K,scored,20,0.965753,0.960000,0.971831
 7,20,2-field,filtered,rna2hla,scored,20,0.658730,0.532258,0.781250
 8,3,1-field,unfiltered,arcas,scored,3,0.333333,0.222222,0.500000
 8,3,1-field,unfiltered,optitype,scored,3,0.266667,0.444444,0.000000

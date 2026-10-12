@@ -64,26 +64,26 @@ Dataset,InMainScope,ToolCoverage,RankInDataset,Locus,Allele,Total,Mis,Misclassif
 6,True,12/12 tools,2,B,B*57:01,12,2,16.666666666666664,1,1
 6,True,12/12 tools,3,B,B*51:01,12,1,8.333333333333332,1,1
 6,True,12/12 tools,4,B,B*54:01,12,1,8.333333333333332,1,1
-7,False,6/12 tools scored,1,B,B*13:02,6,4,66.66666666666666,1,1
-7,False,6/12 tools scored,2,B,B*42:01,6,4,66.66666666666666,1,1
-7,False,6/12 tools scored,3,B,B*40:01,16,9,56.25,3,3
-7,False,6/12 tools scored,4,B,B*07:02,12,6,50.0,2,2
-7,False,6/12 tools scored,5,A,A*24:02,6,3,50.0,1,1
-7,False,6/12 tools scored,6,A,A*31:01,6,3,50.0,1,1
-7,False,6/12 tools scored,7,C,C*02:02,6,3,50.0,1,1
-7,False,6/12 tools scored,8,DQB1,DQB1*05:03,6,3,50.0,1,1
-7,False,6/12 tools scored,9,A,A*33:03,9,4,44.44444444444444,2,2
-7,False,6/12 tools scored,10,DQB1,DQB1*06:02,47,20,42.5531914893617,8,8
-7,False,6/12 tools scored,11,B,B*18:01,24,10,41.66666666666667,4,4
-7,False,6/12 tools scored,12,DQB1,DQB1*02:01,12,5,41.66666666666667,2,2
-7,False,6/12 tools scored,13,DQB1,DQB1*03:03,12,5,41.66666666666667,2,2
-7,False,6/12 tools scored,14,DQB1,DQB1*02:02,41,16,39.02439024390244,7,7
-7,False,6/12 tools scored,15,C,C*12:03,18,7,38.88888888888889,3,3
-7,False,6/12 tools scored,16,DRB1,DRB1*08:04,11,4,36.36363636363637,3,2
-7,False,6/12 tools scored,17,DQB1,DQB1*05:01,42,15,35.714285714285715,7,7
-7,False,6/12 tools scored,18,B,B*35:01,42,14,33.33333333333333,7,7
-7,False,6/12 tools scored,19,C,C*18:02,12,4,33.33333333333333,2,2
-7,False,6/12 tools scored,20,A,A*03:02,6,2,33.33333333333333,1,1
+7,False,6/12 tools scored,1,B,B*40:01,19,11,57.89473684210527,3,3
+7,False,6/12 tools scored,2,B,B*13:02,7,4,57.14285714285714,1,1
+7,False,6/12 tools scored,3,B,B*42:01,7,4,57.14285714285714,1,1
+7,False,6/12 tools scored,4,B,B*07:02,14,7,50.0,2,2
+7,False,6/12 tools scored,5,A,A*24:02,7,3,42.85714285714285,1,1
+7,False,6/12 tools scored,6,A,A*31:01,7,3,42.85714285714285,1,1
+7,False,6/12 tools scored,7,B,B*57:03,7,3,42.85714285714285,1,1
+7,False,6/12 tools scored,8,C,C*02:02,7,3,42.85714285714285,1,1
+7,False,6/12 tools scored,9,DQB1,DQB1*05:03,7,3,42.85714285714285,1,1
+7,False,6/12 tools scored,10,DQB1,DQB1*06:03,7,3,42.85714285714285,1,1
+7,False,6/12 tools scored,11,B,B*18:01,28,11,39.285714285714285,4,4
+7,False,6/12 tools scored,12,DQB1,DQB1*06:02,55,20,36.36363636363637,8,8
+7,False,6/12 tools scored,13,A,A*33:03,11,4,36.36363636363637,2,2
+7,False,6/12 tools scored,14,C,C*18:02,14,5,35.714285714285715,2,2
+7,False,6/12 tools scored,15,DQB1,DQB1*02:01,14,5,35.714285714285715,2,2
+7,False,6/12 tools scored,16,DQB1,DQB1*03:03,14,5,35.714285714285715,2,2
+7,False,6/12 tools scored,17,DQB1,DQB1*02:02,48,17,35.41666666666667,7,7
+7,False,6/12 tools scored,18,B,B*35:01,49,17,34.69387755102041,7,7
+7,False,6/12 tools scored,19,C,C*06:02,21,7,33.33333333333333,3,3
+7,False,6/12 tools scored,20,C,C*12:03,21,7,33.33333333333333,3,3
 8,False,"11/12 tools; n=3, shallow read depth",1,B,B*38:01,22,12,54.54545454545454,2,2
 8,False,"11/12 tools; n=3, shallow read depth",2,A,A*24:02,11,6,54.54545454545454,1,1
 8,False,"11/12 tools; n=3, shallow read depth",3,B,B*13:02,11,6,54.54545454545454,1,1
