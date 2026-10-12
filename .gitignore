@@ -38,3 +38,7 @@ datasets/raw/*.log
 # flattening repo/ up a level (2026-10-08) -- never meant to be tracked.
 /tools/
 /.venv/
+
+# Local Claude Code settings -- purged from git history 2026-10-08; never
+# meant to be tracked (per-machine config, not project state).
+/.claude/
