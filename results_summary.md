@@ -31,7 +31,7 @@
 | arcas | 99.4% | 98.6% | 99.1% |
 | hisat | 99.4% | 98.5% | 99.0% |
 | hlahd | 98.6% | 98.8% | 98.7% |
-| rna2hla | 99.0% | 97.1% | 98.2% |
+| rna2hla | 99.0% | 96.4% | 98.0% |
 | seq2hla | 99.0% | 95.1% | 97.4% |
 | hlaforest | 98.5% | 99.6% | 98.9% |
 | phlat | 97.9% | 85.3% | 92.9% |
@@ -76,7 +76,7 @@
 | arcas | 98.4% | 94.7% | 96.9% |
 | hisat | 98.4% | 94.9% | 97.0% |
 | hlahd | 98.2% | 95.5% | 97.1% |
-| rna2hla | 98.2% | 94.7% | 96.8% |
+| rna2hla | 98.2% | 94.0% | 96.6% |
 | seq2hla | 98.2% | 93.1% | 96.2% |
 | hlaforest | 92.5% | 93.5% | 92.9% |
 | phlat | 96.7% | 78.9% | 89.4% |
@@ -95,7 +95,7 @@
 | arcas | 99.6% | 98.4% | 97.2% | 96.3% | 92.6% |
 | hisat | 99.8% | 98.3% | 97.2% | 96.5% | 92.9% |
 | hlahd | 99.5% | 98.5% | 96.6% | 97.5% | 93.1% |
-| rna2hla | 99.5% | 97.4% | 97.5% | 95.4% | 93.8% |
+| rna2hla | 99.5% | 97.4% | 97.5% | 94.2% | 93.8% |
 | seq2hla | 99.5% | 97.4% | 97.5% | 92.4% | 93.8% |
 | hlaforest | 98.9% | 89.2% | 89.0% | 96.0% | 90.7% |
 | phlat | 98.8% | 94.5% | 96.7% | 97.1% | 58.2% |
@@ -193,7 +193,7 @@
 | arcas | 1131 | 19 | 6 | 24 | 1180 | 96.3% |
 | hisat | 1118 | 32 | 22 | 8 | 1180 | 96.5% |
 | hlahd | 1134 | 19 | 17 | 10 | 1180 | 97.5% |
-| rna2hla | 1050 | 51 | 79 | 0 | 1180 | 95.4% |
+| rna2hla | 1050 | 51 | 65 | 14 | 1180 | 94.2% |
 | seq2hla | 1014 | 83 | 79 | 0 | 1176 | 92.4% |
 | hlaforest | 1060 | 44 | 72 | 0 | 1176 | 96.0% |
 | phlat | 1075 | 32 | 59 | 0 | 1166 | 97.1% |
@@ -231,7 +231,7 @@
 | arcas | 0.4% | 4.7% | 92.3% | 96.9% | +4.5pp |
 | hisat | 0.1% | 3.0% | 94.1% | 97.0% | +2.9pp |
 | hlahd | 0.2% | 3.8% | 93.4% | 97.1% | +3.7pp |
-| rna2hla | 0.0% | 4.3% | 92.7% | 96.8% | +4.2pp |
+| rna2hla | 0.3% | 4.0% | 92.7% | 96.6% | +3.9pp |
 | seq2hla | 0.0% | 4.3% | 92.1% | 96.2% | +4.1pp |
 | hlaforest | 0.0% | 8.0% | 85.5% | 92.9% | +7.5pp |
 | phlat | 0.0% | 6.3% | 83.8% | 89.4% | +5.7pp |
@@ -290,3 +290,45 @@ tables, as expected (F2/F15 only touch bootstrap CIs and Fig 11; F17 was already
 **Direction check (sanity):** every seq2HLA change is an *improvement* (fewer apostrophe'd tokens
 now wrongly counted as novel/miscalled), consistent with the fix removing a defect that was
 artificially depressing seq2HLA's score, not introducing a new one.
+
+## Regeneration history (2026-10-12, same day, second pass)
+
+Regenerated again to pick up the **BACKLOG F7 no-call-token fix**: `score_pair` (and its 9 other
+copies/variants across the notebook) treated a literal no-call placeholder string -- `"na"`
+(lowercase, `hlavbseq_d7.csv`) or `"no"` (`rna2hla_d4.csv`/`rna2hla_d7.csv`) -- as an ordinary
+(wrong) allele prediction instead of a no-call, because `reformat_allele` passes through any token
+without a `"*"` unchanged and the token is then simply absent from `valid_global`, so it scored as
+**novel**. Fixed by converting these tokens to `None` in place before scoring (preserves slot
+position, so a mixed `["na", "A*01:01"]` pair isn't collapsed into duplicating the one real call
+into both slots).
+
+**Scope correction, important:** an initial broader investigation also flagged uppercase `"NA"`
+in `hlahd_d1/d2/d4/d5/d6.csv` and `hlaminer_d1..d7.csv` as the same bug. It is not -- `pandas.
+read_csv` already treats literal `"NA"` as a missing value by default (it's in pandas' own
+`STR_NA_VALUES` list), so those cells were already correctly parsed as no-calls / `NaN` long
+before reaching any scoring code, and are confirmed byte-identical before/after this fix. Only
+lowercase `"na"`/`"no"` (not pandas-recognized) carried the bug.
+
+**Only rna2hla's D4 contribution changes anything in this file** (D4 is DRB1-only, main
+D1-D6 scope). hlavbseq's affected cells are all in D7, which is out of scope for every table in
+this file (D7 is shown separately throughout the project, never pooled into these headline
+numbers). seq2HLA's own `"no"` tokens exist only in `results/read_length/standard/` (feeds Fig 8,
+not this file).
+
+**rna2hla moved:**
+- Table 1 (1-field) Class II/Overall: 97.1/98.2% → 96.4/98.0% (the 1-field computation uses the
+  same filtered formula and token handling, so it carried the identical bug)
+- Table 2 (2-field unfiltered): unchanged (correct/total counts don't depend on the novel/no-call
+  split)
+- Table 3 (2-field filtered) Class II/Overall: 94.7/96.8% → 94.0/96.6%
+- Table 4 (per-locus filtered): DRB1 95.4% → 94.2%, all other loci unchanged
+- Table 5 (per-locus unfiltered): unchanged, same reason as Table 2
+- Table 6 (raw counts), Locus DRB1 row: Novel 79→65, No-call 0→14, Accuracy 95.4%→94.2%
+- Table 7: No-call% 0.0→0.3%, Novel% 4.3→4.0%, Filtered Overall 96.8→96.6%, Δ 4.2pp→3.9pp
+
+**Direction check (sanity):** every rna2hla change is a *decrease* in filtered accuracy -- the
+opposite direction from the seq2HLA fix above, and expected here: these 14 DRB1/D4 slots were
+previously getting a free pass (excluded from the filtered denominator as spurious "novel" calls)
+when they should have counted as no-calls (which *do* count against filtered accuracy, same as
+unfiltered). Fixing the misclassification makes the number worse, not better -- consistent with
+correcting an artifact that was inflating the score, not deflating it.

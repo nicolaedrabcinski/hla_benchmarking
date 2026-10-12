@@ -141,7 +141,7 @@ C*02:10,C,3,True,0,not present in dataset,0,0,
 C*02:10,C,4,True,0,not present in dataset,0,0,
 C*02:10,C,5,True,0,not present in dataset,0,0,
 C*02:10,C,6,True,0,not present in dataset,0,0,
-C*02:10,C,7,False,1,scored,6,3,50.0
+C*02:10,C,7,False,1,scored,6,2,33.33
 C*02:10,C,8,False,0,not present in dataset,0,0,
 DRB1*13:21,DRB1,1,True,1,scored,12,2,16.67
 DRB1*13:21,DRB1,2,True,0,not present in dataset,0,0,
