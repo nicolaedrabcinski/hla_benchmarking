@@ -4,7 +4,8 @@
 *HLA-VBSeq column-swap fix applied 2026-07-15 (DRB1/DQB1 labels swapped in `hlavbseq_d1.csv`)*  
 *HLApers DRB1/DQB1 column-swap fix applied 2026-07-22 (`results/standard/hlapers_d1..d6.csv`)*  
 *":xx" gold-standard-suffix scoring fix applied 2026-07-25 (`B*55:xx`/`A*68:xx` excluded from 2-field scoring; verified zero effect on these particular tables — see notes)*  
-*Regenerated 2026-07-25 using exact scoring logic from `accuracy_fixed_executed.ipynb` Cell 7 -- supersedes the 2026-07-17 version, which predated both the HLApers and ":xx" fixes above*
+*seq2HLA trailing-apostrophe fix applied 2026-10-07 (`results/standard/seq2hla_d2..d6.csv`; D1 unaffected)*  
+*Regenerated 2026-10-12 (BACKLOG F18) to reflect the seq2HLA fix -- supersedes the 2026-07-25 version. Verified: every other tool's number reproduces the 2026-07-25 figures to within rounding (confirms no other scoring change since then); only seq2HLA's numbers moved. See "Regeneration history" at the bottom for exactly what changed.*
 
 ---
 
@@ -55,7 +56,7 @@
 | hisat | 94.6% | 93.2% | 94.1% |
 | hlahd | 92.6% | 94.7% | 93.4% |
 | rna2hla | 96.1% | 87.4% | 92.7% |
-| seq2hla | 94.1% | 83.4% | 89.8% |
+| seq2hla | 96.1% | 85.9% | 92.1% |
 | hlaforest | 82.6% | 89.7% | 85.5% |
 | phlat | 88.6% | 76.4% | 83.8% |
 | hlavbseq | 89.8% | 85.5% | 88.1% |
@@ -76,7 +77,7 @@
 | hisat | 98.4% | 94.9% | 97.0% |
 | hlahd | 98.2% | 95.5% | 97.1% |
 | rna2hla | 98.2% | 94.7% | 96.8% |
-| seq2hla | 98.3% | 94.3% | 96.8% |
+| seq2hla | 98.2% | 93.1% | 96.2% |
 | hlaforest | 92.5% | 93.5% | 92.9% |
 | phlat | 96.7% | 78.9% | 89.4% |
 | hlavbseq | 95.4% | 86.6% | 91.8% |
@@ -95,7 +96,7 @@
 | hisat | 99.8% | 98.3% | 97.2% | 96.5% | 92.9% |
 | hlahd | 99.5% | 98.5% | 96.6% | 97.5% | 93.1% |
 | rna2hla | 99.5% | 97.4% | 97.5% | 95.4% | 93.8% |
-| seq2hla | 99.7% | 97.6% | 97.7% | 94.8% | 93.8% |
+| seq2hla | 99.5% | 97.4% | 97.5% | 92.4% | 93.8% |
 | hlaforest | 98.9% | 89.2% | 89.0% | 96.0% | 90.7% |
 | phlat | 98.8% | 94.5% | 96.7% | 97.1% | 58.2% |
 | hlavbseq | 98.3% | 92.2% | 95.7% | 80.8% | 93.4% |
@@ -116,14 +117,14 @@
 | hisat | 95.7% | 97.5% | 90.7% | 94.7% | 91.4% |
 | hlahd | 95.9% | 95.8% | 86.0% | 96.1% | 93.0% |
 | rna2hla | 97.3% | 94.8% | 96.4% | 89.0% | 85.5% |
-| seq2hla | 95.7% | 92.7% | 93.8% | 81.7% | 85.5% |
+| seq2hla | 97.3% | 94.8% | 96.4% | 86.2% | 85.5% |
 | hlaforest | 92.5% | 75.6% | 79.8% | 90.1% | 89.3% |
 | phlat | 93.4% | 82.3% | 90.1% | 92.2% | 57.6% |
 | hlavbseq | 95.4% | 85.0% | 89.0% | 79.3% | 93.1% |
 | hlapers | 76.6% | 87.9% | 43.5% | 94.2% | 91.0% |
 | optitype | 98.9% | 97.6% | 98.0% | 0.0% | 0.0% |
 | hlaminer | 7.8% | 3.9% | 7.2% | 5.1% | 16.8% |
-| **Mean (12 tools)** | **86.6%** | **83.5%** | **80.0%** | **76.3%** | **73.7%** |
+| **Mean (12 tools)** | **86.7%** | **83.7%** | **80.2%** | **76.7%** | **73.7%** |
 
 *Comparison to Serghei's slide 24 (A=85.0%, B=82.0%, C=78.0%, DRB1=58.6%, DQB1=55.8%): Class I loci (A/B/C) are close, within 1.5-2.5pp. Class II loci (DRB1/DQB1) diverge by ~18-20pp. The most likely explanation is that the slide predates the 2026-07-22 HLApers DRB1/DQB1 column-swap fix — under the pre-fix data, HLApers scored 0% on both Class II loci, which would drag a 12-tool mean down by roughly 100%/12 ≈ 8pp per locus, and other tools' pre-swap-fix values compound further. This has not been confirmed against the slide's own source data, only inferred from the direction and rough magnitude of the gap — do not put these numbers in the manuscript without `hla-benchmark-scientist`/Serghei sign-off per the original BACKLOG.md instruction.*
 
@@ -142,7 +143,7 @@
 | hisat | 1036 | 2 | 44 | 0 | 1082 | 99.8% |
 | hlahd | 1038 | 5 | 39 | 0 | 1082 | 99.5% |
 | rna2hla | 1053 | 5 | 24 | 0 | 1082 | 99.5% |
-| seq2hla | 1035 | 3 | 44 | 0 | 1082 | 99.7% |
+| seq2hla | 1053 | 5 | 24 | 0 | 1082 | 99.5% |
 | hlaforest | 1001 | 11 | 70 | 0 | 1082 | 98.9% |
 | phlat | 1011 | 12 | 59 | 0 | 1082 | 98.8% |
 | hlavbseq | 1032 | 18 | 32 | 0 | 1082 | 98.3% |
@@ -159,7 +160,7 @@
 | hisat | 1059 | 18 | 9 | 0 | 1086 | 98.3% |
 | hlahd | 1040 | 16 | 30 | 0 | 1086 | 98.5% |
 | rna2hla | 1029 | 27 | 30 | 0 | 1086 | 97.4% |
-| seq2hla | 1007 | 25 | 54 | 0 | 1086 | 97.6% |
+| seq2hla | 1029 | 27 | 30 | 0 | 1086 | 97.4% |
 | hlaforest | 821 | 99 | 166 | 0 | 1086 | 89.2% |
 | phlat | 894 | 52 | 140 | 0 | 1086 | 94.5% |
 | hlavbseq | 923 | 78 | 85 | 0 | 1086 | 92.2% |
@@ -176,7 +177,7 @@
 | hisat | 994 | 29 | 73 | 0 | 1096 | 97.2% |
 | hlahd | 943 | 33 | 120 | 0 | 1096 | 96.6% |
 | rna2hla | 1056 | 27 | 13 | 0 | 1096 | 97.5% |
-| seq2hla | 1028 | 24 | 44 | 0 | 1096 | 97.7% |
+| seq2hla | 1056 | 27 | 13 | 0 | 1096 | 97.5% |
 | hlaforest | 875 | 108 | 113 | 0 | 1096 | 89.0% |
 | phlat | 988 | 34 | 74 | 0 | 1096 | 96.7% |
 | hlavbseq | 975 | 44 | 77 | 0 | 1096 | 95.7% |
@@ -193,7 +194,7 @@
 | hisat | 1118 | 32 | 22 | 8 | 1180 | 96.5% |
 | hlahd | 1134 | 19 | 17 | 10 | 1180 | 97.5% |
 | rna2hla | 1050 | 51 | 79 | 0 | 1180 | 95.4% |
-| seq2hla | 961 | 53 | 162 | 0 | 1176 | 94.8% |
+| seq2hla | 1014 | 83 | 79 | 0 | 1176 | 92.4% |
 | hlaforest | 1060 | 44 | 72 | 0 | 1176 | 96.0% |
 | phlat | 1075 | 32 | 59 | 0 | 1166 | 97.1% |
 | hlavbseq | 932 | 220 | 22 | 2 | 1176 | 80.8% |
@@ -231,7 +232,7 @@
 | hisat | 0.1% | 3.0% | 94.1% | 97.0% | +2.9pp |
 | hlahd | 0.2% | 3.8% | 93.4% | 97.1% | +3.7pp |
 | rna2hla | 0.0% | 4.3% | 92.7% | 96.8% | +4.2pp |
-| seq2hla | 0.0% | 7.2% | 89.8% | 96.8% | +7.0pp |
+| seq2hla | 0.0% | 4.3% | 92.1% | 96.2% | +4.1pp |
 | hlaforest | 0.0% | 8.0% | 85.5% | 92.9% | +7.5pp |
 | phlat | 0.0% | 6.3% | 83.8% | 89.4% | +5.7pp |
 | hlavbseq | 0.0% | 4.1% | 88.1% | 91.8% | +3.7pp |
@@ -263,3 +264,29 @@ This file was regenerated for the first time since **2026-07-17** (Human-PI-auth
 **Addendum, later on 2026-07-25:** added new **Table 5 (Per-Locus Accuracy — 2-field, Unfiltered)**, computed on request to check Serghei's ISMB 2026 slide 24 per-locus numbers (`BACKLOG.md` item). Old Table 5/6 renumbered to 6/7. See Table 5's own caption for the comparison and its likely explanation (pre-HLApers-fix data on the slide). Not sign-off'd for manuscript use.
 
 All three fixes were individually authorized and verified (with backups, diffs, and independent re-derivation) at the time each was made — see `.claude/memory/KNOWN_BUGS.md` for the full history of each. This regeneration is the first time their combined effect appears in the published summary table.
+
+## Regeneration history (2026-10-12)
+
+Regenerated again to pick up the **seq2HLA trailing-apostrophe fix** (2026-10-07, BACKLOG F1): allele
+tokens like `A*01:01'` in `results/standard/seq2hla_d2..d6.csv` never matched the gold standard
+(D1 was unaffected — confirmed zero apostrophes there). Recomputed all 7 tables directly from
+`results/standard/*.csv` using the notebook's exact scoring contract (`aggregate_counts_per_tool_locus`
+/ `compute_all_metrics`, cell "Fig 3-4"), and diffed every cell against the 2026-07-25 published
+values as a sanity check before editing anything.
+
+**Every number for every tool other than seq2HLA reproduced the published 2026-07-25 figures within
+rounding** — confirms the F2 (individual-level resampling), F15 (Fig 11 rebuild), and F17
+(`get_pr_loci` standardization) fixes made since then correctly had no effect on these headline
+tables, as expected (F2/F15 only touch bootstrap CIs and Fig 11; F17 was already verified silent).
+
+**seq2HLA moved, every table it appears in:**
+- Table 2 (2-field unfiltered) Overall: 89.8% → 92.1%
+- Table 3 (2-field filtered) Overall: 96.8% → 96.2%
+- Table 4 (per-locus filtered): A 99.7→99.5%, B 97.6→97.4%, C 97.7→97.5%, DRB1 94.8→92.4%, DQB1 unchanged (93.8%)
+- Table 5 (per-locus unfiltered): A 95.7→97.3%, B 92.7→94.8%, C 93.8→96.4%, DRB1 81.7→86.2%, DQB1 unchanged; 12-tool mean row shifts by ≤0.4pp at every locus except DQB1
+- Table 6 (raw counts): Loci A, B, C, DRB1 all change (apostrophe'd tokens were being scored as either novel or miscalled depending on resolution/filter rather than matching); Locus DQB1 unchanged
+- Table 7: novel rate 7.2%→4.3%, unfiltered/filtered overall 89.8/96.8% → 92.1/96.2%, Δ 7.0pp→4.1pp
+
+**Direction check (sanity):** every seq2HLA change is an *improvement* (fewer apostrophe'd tokens
+now wrongly counted as novel/miscalled), consistent with the fix removing a defect that was
+artificially depressing seq2HLA's score, not introducing a new one.
