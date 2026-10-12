@@ -15,6 +15,24 @@
 > `scientific-writer` has wording ready the moment clearance lands — it is
 > not itself a clearance signal, and every number below must be re-verified
 > against whatever table is current at that time before use.
+>
+> **Status update 2026-10-12:** of the three blockers above, the first two are
+> now resolved. (1) The `:xx` malformed-token bug was fixed 2026-07-25;
+> verified zero occurrences of either token anywhere in current Fig 7 output.
+> (2) The no-call/miscall conflation was fixed today: all four copies of the
+> allele-tally aggregator (`compute_allele_misclassification_rate`,
+> `compute_allele_misclassification_rate_by_dataset`, and the per-dataset
+> `pd_allele_tally`) now track `NoCall` separately from `Mis`, matching the
+> rest of the project's `score_pair` contract. This moved the pooled top-20:
+> 4 alleles entered (A*01:02, A*02:24, B*52:01, DRB1*13:21), 4 dropped
+> (B*15:16, B*42:01, B*82:01, C*18:02), 16/20 unchanged -- every number and
+> every panel in this draft is now stale relative to the regenerated figures
+> and tables and must be re-derived before use. (3) Small effective sample
+> sizes remain an inherent, permanent caveat (not a bug to fix) and must stay
+> in any final caption. **Still missing before this can be cleared for
+> publication:** a fresh `statistics-reviewer` sign-off on the current
+> (post-all-fixes) data -- none of the numbers in this draft have been
+> re-verified against it, this is a code/data status update only.
 
 ---
 

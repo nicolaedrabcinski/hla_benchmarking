@@ -6,7 +6,7 @@
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-10-08T12:41:07.138300</dc:date>
+    <dc:date>2026-10-12T09:22:18.141229</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -748,19 +748,19 @@ z
    </g>
    <g id="patch_3">
     <path d="M 58.349219 56.725906 
-L 75.749219 56.725906 
-L 75.749219 47.221906 
+L 67.049219 56.725906 
+L 67.049219 47.221906 
 L 58.349219 47.221906 
 z
-" clip-path="url(#pe8813d7485)" style="fill: #4daf4a; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p8dab0ce8ee)" style="fill: #4daf4a; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_4">
     <path d="M 58.349219 43.525906 
-L 93.149219 43.525906 
-L 93.149219 34.021906 
+L 80.099219 43.525906 
+L 80.099219 34.021906 
 L 58.349219 34.021906 
 z
-" clip-path="url(#pe8813d7485)" style="fill: #4daf4a; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
+" clip-path="url(#p8dab0ce8ee)" style="fill: #4daf4a; stroke: #ffffff; stroke-width: 0.8; stroke-linejoin: miter"/>
    </g>
    <g id="patch_5">
     <path d="M 58.349219 61.213906 
@@ -783,8 +783,8 @@ L 267.149219 29.533906
 " style="fill: none; stroke: #000000; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
    <g id="text_10">
-    <!-- 4/48 -->
-    <g style="fill: #666666" transform="translate(78.881219 53.654766) scale(0.065 -0.065)">
+    <!-- 2/48 -->
+    <g style="fill: #666666" transform="translate(70.181219 53.654766) scale(0.065 -0.065)">
      <defs>
       <path id="LiberationSans-2f" d="M 0 -63 
 L 1284 4638 
@@ -794,16 +794,42 @@ L 0 -63
 z
 " transform="scale(0.015625)"/>
      </defs>
-     <use xlink:href="#LiberationSans-34"/>
+     <use xlink:href="#LiberationSans-32"/>
      <use xlink:href="#LiberationSans-2f" transform="translate(55.615234 0)"/>
      <use xlink:href="#LiberationSans-34" transform="translate(83.398438 0)"/>
      <use xlink:href="#LiberationSans-38" transform="translate(139.013672 0)"/>
     </g>
    </g>
    <g id="text_11">
-    <!-- 8/48 -->
-    <g style="fill: #666666" transform="translate(96.281219 40.454766) scale(0.065 -0.065)">
-     <use xlink:href="#LiberationSans-38"/>
+    <!-- 5/48 -->
+    <g style="fill: #666666" transform="translate(83.231219 40.454766) scale(0.065 -0.065)">
+     <defs>
+      <path id="LiberationSans-35" d="M 3291 1434 
+Q 3291 738 2877 337 
+Q 2463 -63 1728 -63 
+Q 1113 -63 734 206 
+Q 356 475 256 984 
+L 825 1050 
+Q 1003 397 1741 397 
+Q 2194 397 2450 670 
+Q 2706 944 2706 1422 
+Q 2706 1838 2448 2094 
+Q 2191 2350 1753 2350 
+Q 1525 2350 1328 2278 
+Q 1131 2206 934 2034 
+L 384 2034 
+L 531 4403 
+L 3034 4403 
+L 3034 3925 
+L 1044 3925 
+L 959 2528 
+Q 1325 2809 1869 2809 
+Q 2519 2809 2905 2428 
+Q 3291 2047 3291 1434 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#LiberationSans-35"/>
      <use xlink:href="#LiberationSans-2f" transform="translate(55.615234 0)"/>
      <use xlink:href="#LiberationSans-34" transform="translate(83.398438 0)"/>
      <use xlink:href="#LiberationSans-38" transform="translate(139.013672 0)"/>
@@ -1622,7 +1648,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pe8813d7485">
+  <clipPath id="p8dab0ce8ee">
    <rect x="58.349219" y="29.533906" width="208.8" height="31.68"/>
   </clipPath>
  </defs>
