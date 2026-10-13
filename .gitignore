@@ -23,8 +23,11 @@ datasets/raw/hlapers_ref/
 datasets/raw/hlapers_hladb/
 datasets/raw/hlapers_index.idx
 datasets/raw/t1k_ref/
+datasets/raw/d2_*/
+datasets/raw/d4_*/
 datasets/raw/d7_*/
 datasets/raw/d8_*/
+datasets/raw/phlat_index_build/
 datasets/raw/*.log
 
 # Deliberate pre-fix/pre-refresh backups (project convention: kept on disk,

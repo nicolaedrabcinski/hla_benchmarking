@@ -49,7 +49,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 1,490,2-field,filtered,rna2hla,scored,490,0.971640,0.984083,0.952044
 2,86,1-field,unfiltered,arcas,scored,86,1.000000,,1.000000
 2,86,1-field,unfiltered,optitype,scored,86,0.000000,,0.000000
-2,86,1-field,unfiltered,seq2hla,partial,84,0.678571,,0.678571
+2,86,1-field,unfiltered,seq2hla,scored,86,0.686047,,0.686047
 2,86,1-field,unfiltered,hlaminer,scored,86,0.383721,,0.383721
 2,86,1-field,unfiltered,phlat,scored,86,1.000000,,1.000000
 2,86,1-field,unfiltered,hlavbseq,scored,86,0.593023,,0.593023
@@ -61,7 +61,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 2,86,1-field,unfiltered,rna2hla,scored,86,0.924419,,0.924419
 2,86,1-field,filtered,arcas,scored,86,1.000000,,1.000000
 2,86,1-field,filtered,optitype,scored,86,0.000000,,0.000000
-2,86,1-field,filtered,seq2hla,partial,84,0.678571,,0.678571
+2,86,1-field,filtered,seq2hla,scored,86,0.686047,,0.686047
 2,86,1-field,filtered,hlaminer,scored,86,0.402439,,0.402439
 2,86,1-field,filtered,phlat,scored,86,1.000000,,1.000000
 2,86,1-field,filtered,hlavbseq,scored,86,0.593023,,0.593023
@@ -73,7 +73,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 2,86,1-field,filtered,rna2hla,scored,86,0.924419,,0.924419
 2,86,2-field,unfiltered,arcas,scored,86,0.970930,,0.970930
 2,86,2-field,unfiltered,optitype,scored,86,0.000000,,0.000000
-2,86,2-field,unfiltered,seq2hla,partial,84,0.571429,,0.571429
+2,86,2-field,unfiltered,seq2hla,scored,86,0.581395,,0.581395
 2,86,2-field,unfiltered,hlaminer,scored,86,0.127907,,0.127907
 2,86,2-field,unfiltered,phlat,scored,86,0.930233,,0.930233
 2,86,2-field,unfiltered,hlavbseq,scored,86,0.558140,,0.558140
@@ -85,7 +85,7 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 2,86,2-field,unfiltered,rna2hla,scored,86,0.767442,,0.767442
 2,86,2-field,filtered,arcas,scored,86,1.000000,,1.000000
 2,86,2-field,filtered,optitype,scored,86,0.000000,,0.000000
-2,86,2-field,filtered,seq2hla,partial,84,0.657534,,0.657534
+2,86,2-field,filtered,seq2hla,scored,86,0.666667,,0.666667
 2,86,2-field,filtered,hlaminer,scored,86,0.372881,,0.372881
 2,86,2-field,filtered,phlat,scored,86,1.000000,,1.000000
 2,86,2-field,filtered,hlavbseq,scored,86,0.585366,,0.585366
@@ -147,11 +147,11 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 4,14,1-field,unfiltered,optitype,scored,14,0.000000,,0.000000
 4,14,1-field,unfiltered,seq2hla,scored,14,0.392857,,0.392857
 4,14,1-field,unfiltered,hlaminer,scored,14,0.357143,,0.357143
-4,14,1-field,unfiltered,phlat,partial,7,0.928571,,0.928571
-4,14,1-field,unfiltered,hlavbseq,partial,12,0.125000,,0.125000
+4,14,1-field,unfiltered,phlat,scored,14,0.464286,,0.464286
+4,14,1-field,unfiltered,hlavbseq,scored,14,0.107143,,0.107143
 4,14,1-field,unfiltered,hlahd,scored,14,0.642857,,0.642857
 4,14,1-field,unfiltered,hisat,scored,14,0.607143,,0.607143
-4,14,1-field,unfiltered,hlaforest,partial,12,0.875000,,0.875000
+4,14,1-field,unfiltered,hlaforest,scored,14,0.750000,,0.750000
 4,14,1-field,unfiltered,hlapers,scored,14,0.821429,,0.821429
 4,14,1-field,unfiltered,T1K,scored,14,0.892857,,0.892857
 4,14,1-field,unfiltered,rna2hla,scored,14,0.392857,,0.392857
@@ -159,11 +159,11 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 4,14,1-field,filtered,optitype,scored,14,0.000000,,0.000000
 4,14,1-field,filtered,seq2hla,scored,14,0.785714,,0.785714
 4,14,1-field,filtered,hlaminer,scored,14,0.434783,,0.434783
-4,14,1-field,filtered,phlat,partial,7,0.928571,,0.928571
-4,14,1-field,filtered,hlavbseq,partial,12,0.300000,,0.300000
+4,14,1-field,filtered,phlat,scored,14,0.464286,,0.464286
+4,14,1-field,filtered,hlavbseq,scored,14,0.300000,,0.300000
 4,14,1-field,filtered,hlahd,scored,14,0.642857,,0.642857
 4,14,1-field,filtered,hisat,scored,14,0.629630,,0.629630
-4,14,1-field,filtered,hlaforest,partial,12,0.875000,,0.875000
+4,14,1-field,filtered,hlaforest,scored,14,0.750000,,0.750000
 4,14,1-field,filtered,hlapers,scored,14,0.821429,,0.821429
 4,14,1-field,filtered,T1K,scored,14,0.892857,,0.892857
 4,14,1-field,filtered,rna2hla,scored,14,0.392857,,0.392857
@@ -171,11 +171,11 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 4,14,2-field,unfiltered,optitype,scored,14,0.000000,,0.000000
 4,14,2-field,unfiltered,seq2hla,scored,14,0.321429,,0.321429
 4,14,2-field,unfiltered,hlaminer,scored,14,0.035714,,0.035714
-4,14,2-field,unfiltered,phlat,partial,7,0.642857,,0.642857
-4,14,2-field,unfiltered,hlavbseq,partial,12,0.125000,,0.125000
+4,14,2-field,unfiltered,phlat,scored,14,0.321429,,0.321429
+4,14,2-field,unfiltered,hlavbseq,scored,14,0.107143,,0.107143
 4,14,2-field,unfiltered,hlahd,scored,14,0.535714,,0.535714
 4,14,2-field,unfiltered,hisat,scored,14,0.392857,,0.392857
-4,14,2-field,unfiltered,hlaforest,partial,12,0.583333,,0.583333
+4,14,2-field,unfiltered,hlaforest,scored,14,0.500000,,0.500000
 4,14,2-field,unfiltered,hlapers,scored,14,0.607143,,0.607143
 4,14,2-field,unfiltered,T1K,scored,14,0.821429,,0.821429
 4,14,2-field,unfiltered,rna2hla,scored,14,0.321429,,0.321429
@@ -183,11 +183,11 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 4,14,2-field,filtered,optitype,scored,14,0.000000,,0.000000
 4,14,2-field,filtered,seq2hla,scored,14,1.000000,,1.000000
 4,14,2-field,filtered,hlaminer,scored,14,0.090909,,0.090909
-4,14,2-field,filtered,phlat,partial,7,0.900000,,0.900000
-4,14,2-field,filtered,hlavbseq,partial,12,0.300000,,0.300000
+4,14,2-field,filtered,phlat,scored,14,0.375000,,0.375000
+4,14,2-field,filtered,hlavbseq,scored,14,0.300000,,0.300000
 4,14,2-field,filtered,hlahd,scored,14,0.600000,,0.600000
 4,14,2-field,filtered,hisat,scored,14,0.578947,,0.578947
-4,14,2-field,filtered,hlaforest,partial,12,0.933333,,0.933333
+4,14,2-field,filtered,hlaforest,scored,14,0.823529,,0.823529
 4,14,2-field,filtered,hlapers,scored,14,0.944444,,0.944444
 4,14,2-field,filtered,T1K,scored,14,0.920000,,0.920000
 4,14,2-field,filtered,rna2hla,scored,14,0.391304,,0.391304
@@ -288,9 +288,9 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 6,4,2-field,filtered,T1K,scored,4,1.000000,1.000000,
 6,4,2-field,filtered,rna2hla,scored,4,1.000000,1.000000,
 7,20,1-field,unfiltered,arcas,scored,20,0.435000,0.325000,0.600000
-7,20,1-field,unfiltered,optitype,partial,19,0.278947,0.464912,0.000000
+7,20,1-field,unfiltered,optitype,scored,20,0.290000,0.483333,0.000000
 7,20,1-field,unfiltered,seq2hla,not run,0,,,
-7,20,1-field,unfiltered,hlaminer,partial,17,0.164706,0.058824,0.323529
+7,20,1-field,unfiltered,hlaminer,scored,20,0.140000,0.050000,0.275000
 7,20,1-field,unfiltered,phlat,not run,0,,,
 7,20,1-field,unfiltered,hlavbseq,scored,20,0.300000,0.158333,0.512500
 7,20,1-field,unfiltered,hlahd,not run,0,,,
@@ -300,9 +300,9 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,1-field,unfiltered,T1K,scored,20,0.960000,0.941667,0.987500
 7,20,1-field,unfiltered,rna2hla,scored,20,0.555000,0.408333,0.775000
 7,20,1-field,filtered,arcas,scored,20,0.437186,0.327731,0.600000
-7,20,1-field,filtered,optitype,partial,19,0.286486,0.486239,0.000000
+7,20,1-field,filtered,optitype,scored,20,0.297436,0.504348,0.000000
 7,20,1-field,filtered,seq2hla,not run,0,,,
-7,20,1-field,filtered,hlaminer,partial,17,0.164706,0.058824,0.323529
+7,20,1-field,filtered,hlaminer,scored,20,0.140000,0.050000,0.275000
 7,20,1-field,filtered,phlat,not run,0,,,
 7,20,1-field,filtered,hlavbseq,scored,20,0.307692,0.161017,0.532468
 7,20,1-field,filtered,hlahd,not run,0,,,
@@ -312,9 +312,9 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,1-field,filtered,T1K,scored,20,0.960000,0.941667,0.987500
 7,20,1-field,filtered,rna2hla,scored,20,0.616667,0.490000,0.775000
 7,20,2-field,unfiltered,arcas,scored,20,0.195000,0.175000,0.225000
-7,20,2-field,unfiltered,optitype,partial,19,0.231579,0.385965,0.000000
+7,20,2-field,unfiltered,optitype,scored,20,0.245000,0.408333,0.000000
 7,20,2-field,unfiltered,seq2hla,not run,0,,,
-7,20,2-field,unfiltered,hlaminer,partial,17,0.094118,0.019608,0.205882
+7,20,2-field,unfiltered,hlaminer,scored,20,0.080000,0.016667,0.175000
 7,20,2-field,unfiltered,phlat,not run,0,,,
 7,20,2-field,unfiltered,hlavbseq,scored,20,0.115000,0.100000,0.137500
 7,20,2-field,unfiltered,hlahd,not run,0,,,
@@ -324,9 +324,9 @@ Dataset,N,Resolution,Mode,Tool,ToolStatus,NMatched,Overall,ClassI,ClassII
 7,20,2-field,unfiltered,T1K,scored,20,0.705000,0.600000,0.862500
 7,20,2-field,unfiltered,rna2hla,scored,20,0.415000,0.275000,0.625000
 7,20,2-field,filtered,arcas,scored,20,0.260000,0.212121,0.352941
-7,20,2-field,filtered,optitype,partial,19,0.257310,0.463158,0.000000
+7,20,2-field,filtered,optitype,scored,20,0.272222,0.490000,0.000000
 7,20,2-field,filtered,seq2hla,not run,0,,,
-7,20,2-field,filtered,hlaminer,partial,17,0.101266,0.020833,0.225806
+7,20,2-field,filtered,hlaminer,scored,20,0.085106,0.017544,0.189189
 7,20,2-field,filtered,phlat,not run,0,,,
 7,20,2-field,filtered,hlavbseq,scored,20,0.146497,0.105263,0.255814
 7,20,2-field,filtered,hlahd,not run,0,,,
