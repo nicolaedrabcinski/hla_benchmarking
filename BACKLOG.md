@@ -175,7 +175,7 @@ supervisor's Google Doc comments, per-tool standardisation scripts, Results numb
 - [x] **F21 — Fig 7 family's MisclassificationRate% conflated no-call with genuine miscall.** FIXED 2026-10-12 (via `figures/miscalled_alleles_family_CAPTION_DRAFT.md` blocker 2): `compute_allele_misclassification_rate`, `compute_allele_misclassification_rate_by_dataset`, and the per-dataset `pd_allele_tally` (3 structurally-identical copies feeding the main Fig 7 chart, all 8 supplementary panels, and the per-dataset top-20 charts) scored `hit=False` identically whether the tool genuinely gave no answer for that locus (`pr_raw` empty) or gave a wrong answer -- inconsistent with the rest of the project (`score_pair`/`compute_all_metrics` always separate `no_call` from `miscalled`). Added a `NoCall`/`NoCallRate` counter alongside `Mis`, based on raw `pr_raw` (pre-filter) so a novel prediction that `filter_option` strips away still counts as a genuine miscall attempt, not a no-call. Moved the pooled top-20: 4 alleles entered (A*01:02, A*02:24, B*52:01, DRB1*13:21), 4 dropped (B*15:16, B*42:01, B*82:01, C*18:02), 16/20 unchanged. Verified: both existing cross-reconciliation assertions (pooled vs per-dataset sum; Fig 6-family per-dataset tally vs Fig 7 per-dataset tally) still pass. Full notebook re-run clean, 129/129 cells, 0 errors.
 
 - [x] **F19 — Ancestry analyses use D1 only, by design. FIXED 2026-10-13.** Only D1 has population metadata (`datasets/archive/SraRunTableD1.txt`). Methods already stated this fact neutrally ("Assessing the effect of ancestral diversity on HLA predictions": "...as Dataset 1 is the only dataset for which ancestral information is available") but the Discussion's ancestry paragraph (under a tracked-deleted "Ancestral Bias in HLA Typing" heading, Serghei Mangul, 2025-10-28 — not touched, that's a separate open tracked-change, not this item) stated the European-vs-African accuracy gap with no scope caveat, right before the "Limitations and Considerations" section (also tracked-deleted heading). Added one sentence to the end of that paragraph in the manuscript copy: "This comparison is restricted to Dataset 1, the only one of our eight datasets with documented ancestral metadata, so whether the observed accuracy gap generalizes to other populations or datasets remains to be determined." Lands immediately before the existing Limitations block (PCR-SSP/SSOP ambiguity, compute-resource variability, tissue type), consistent with that section's pattern. Applied to `manuscript_edit_ref9_barker.docx` (page 14-15 in rendered PDF), validated (`validate.py` passed, 1478→1478 paragraphs) and visually confirmed via rendered page images. No code change, as scoped.
-- [ ] **F20 — results/optimization/ parameter sweep may not have varied the actual parameter, MEDIUM/HIGH.** OptiType (`optitype_optim_0.004/0.009/0.014.csv`) and RNA2HLA (`rna2hla_optim_5/10/15.csv`) give byte-identical output across all 3 labeled parameter values on 50 real samples (ERR188xxx, `accession/optimization_accessions.txt`) -- arcasHLA and HLA-VBSeq (also swept) mostly vary normally, so this isn't a general tooling issue. Root cause investigated 2026-10-12: **OptiType** -- manuscript Table 3 lists `--beta` as the swept CLI parameter; the classic/original `OptiTypePipeline.py` (the tool this project's own `scripts/environmental_files/optitype.yml`, python 2.7 + pyomo, documents) has no such CLI flag -- beta is config.ini-only there, and Table 3's own example command points to one static `OptiType/config.ini`, consistent with the sweep never having varied it. **RNA2HLA** -- `-3` (trim) is a real, correctly-wired CLI flag (verified in `tools/RNA2HLA/RNA2HLA.py` / `paired_end.py`: flows through to `bowtie -3 <N>`).
+- [x] **F20 — results/optimization/ parameter sweep had not actually varied the parameter. CONFIRMED AND FIXED 2026-10-14.** OptiType (`optitype_optim_0.004/0.009/0.014.csv`) and RNA2HLA (`rna2hla_optim_5/10/15.csv`) gave byte-identical output across all 3 labeled parameter values on 50 real samples (ERR188xxx, `accession/optimization_accessions.txt`) -- arcasHLA and HLA-VBSeq (also swept) mostly vary normally, so this isn't a general tooling issue. Root cause investigated 2026-10-12: **OptiType** -- manuscript Table 3 lists `--beta` as the swept CLI parameter; the classic/original `OptiTypePipeline.py` (the tool this project's own `scripts/environmental_files/optitype.yml`, python 2.7 + pyomo, documents) has no such CLI flag -- beta is config.ini-only there, and Table 3's own example command points to one static `OptiType/config.ini`, consistent with the sweep never having varied it. **RNA2HLA** -- `-3` (trim) is a real, correctly-wired CLI flag (verified in `tools/RNA2HLA/RNA2HLA.py` / `paired_end.py`: flows through to `bowtie -3 <N>`).
 
   **Spot-check completed 2026-10-13** on 1 sample (ERR188021, downloaded fresh): the classic python2 `OptiTypePipeline.py` is no longer present anywhere on this machine (only its conda env, with the right deps but no script, survives) and wasn't re-downloaded for this check (out of scope for a quick spot-check; would need its own GitHub clone). Instead ran the modern `optitype` conda-forge CLI (1.5.0, genuinely has `-b/--beta`, default 0.009 matching the sweep's middle value exactly) at `-b 0.004/0.009/0.014`, and `RNA2HLA.py -3 5` / `-3 15` directly (its own real CLI flag, no proxy needed). Confirmed both tools' internal computation genuinely responds to the parameter (OptiType's reported ILP `Objective` score strictly decreases 34845.77 -> 34316.74 -> 33787.70 as beta rises; RNA2HLA's reported confidence values differ between trim=5 and trim=15) -- **and yet all 3 OptiType runs and both RNA2HLA runs produced the exact same final 2-field allele calls** (A*01:01/A*24:02, B*41:02/B*57:01, C*06:02/C*17:01 for OptiType; DRB1*04:07/DRB1*13:03 for RNA2HLA), each also matching that same sample's existing row in the corresponding `*_optim_*.csv` file exactly.
 
@@ -198,8 +198,56 @@ supervisor's Google Doc comments, per-tool standardisation scripts, Results numb
   used), every one of those labeled runs may have crashed identically regardless of beta, and the
   byte-identical "results" could be a leftover/reused file from one successful run (manual or
   scripted) copied across 3 filenames -- more parsimonious than "beta has zero effect," and testable:
-  re-running the full 50-sample sweep with `--solver cbc` would settle it, but that's still the
-  ~full-rerun cost estimated above, not done.
+  re-running the full 50-sample sweep with `--solver cbc` would settle it.
+
+  **FULL 50-SAMPLE RE-RUN COMPLETED 2026-10-13/14 (Human-PI-authorized: Nick, "F20 — полный перезапуск").**
+  Downloaded all 50 ERR188xxx FASTQ pairs fresh (`datasets/raw/download_f20_optim.sh`, ~630GB).
+  Ran RNA2HLA at `-3 5/10/15` (`datasets/raw/run_f20_rna2hla.sh`, then `..._g6.sh` -- see bug below)
+  and OptiType (modern conda-forge CLI, `--solver cbc`, `-b 0.004/0.009/0.014`) across all 50 samples
+  each, standardized with the project's own `scripts/standardization_scripts/{rna2hla,optitype}_standardize.py`.
+
+  **Bug caught mid-run (RNA2HLA):** the first RNA2HLA pass used no `-g` flag, silently defaulting to
+  `-g 5`, which types **A/B/C/DRB1/DPB1 -- not DQB1** (confirmed in `paired_end.py`: `if genes==5:
+  class2_list=["DRB1","DPB1"]`, DQB1 only enters via the `else` branch, which also switches to a
+  different, larger bowtie index). Since DQB1 is one of this project's 5 canonical loci and the
+  existing (old, suspect) `rna2hla_optim_*.csv` files do have a DQB1 column, this first pass's output
+  was archived (`datasets/raw/d1_optim_rnaseq/trim{5,10,15}_g5_INCOMPLETE_no_DQB1/`, not deleted) and
+  RNA2HLA re-run correctly with `-g 6` (`run_f20_rna2hla_g6.sh`).
+
+  **Bug caught mid-run (OptiType):** the first OptiType pass (`-j16` parallel, `--threads 3` each)
+  OOM-killed **109 of 150 jobs** (`razers3` exit -9) -- 16 concurrent OptiType processes can each peak
+  near 25GB RAM, far exceeding this machine's 125GB when that many hit peak together; swap filled
+  completely. Retried the 109 missing jobs at `-j5` (109 -> 5 still failing, same large 2 samples,
+  8.4GB/13.3GB FASTQ pairs); retried those final 5 fully serially (`--threads 60`, no concurrency) --
+  all completed cleanly, ~17-21 min each.
+
+  **Result, now with all 50 samples genuinely scored at every parameter value:**
+  - **RNA2HLA: real, substantial parameter sensitivity.** trim=5 vs trim=10 differ on **40 of 50
+    samples** (80%) -- genuine 2-field allele changes, not just field reordering (e.g. ERR188031 B
+    locus: `B*15:30/B*15:30` at trim=5 -> `B*15:01/B*15:01` at trim=10; several C-locus and DRB1
+    changes too, e.g. `DRB1*14:05` -> `DRB1*14:103`).
+  - **OptiType: real but narrow parameter sensitivity.** beta=0.004 vs beta=0.009 differ on **1 of 50
+    samples** (ERR188057: B `B*44:03/B*44:22` at beta=0.004 -> `B*44:02/B*44:02` at beta=0.009) --
+    exactly the mechanism beta is documented to control (homozygosity-detection threshold), consistent
+    with the modern-CLI spot-check's own finding that beta only matters when a sample's signal is
+    borderline-ambiguous at a locus.
+  - **The old `*_optim_*.csv` files were definitively a sweep-execution artifact, not a real tool
+    property**, confirming the "leftover/reused file" theory over the "parameters don't matter"
+    reading. The original spot-check's cautious "plausible as a real tool property" conclusion
+    (based on 1 sample, which happened to be unambiguous at every locus) is superseded by this
+    full-cohort result.
+
+  **FIXED 2026-10-14:** `results/optimization/optitype_optim_{0.004,0.009,0.014}.csv` and
+  `rna2hla_optim_{5,10,15}.csv` replaced with the new, honest 50-sample results (standardized to the
+  project's existing schema -- OptiType stays 7-column Class-I-only, matching `results/standard/
+  optitype_d*.csv`'s own convention; RNA2HLA keeps the full 10-column A/B/C/DRB1/DQB1 schema).
+  Sample-ID sets independently verified to exactly match `accession/optimization_accessions.txt` for
+  both tools before replacing. Manuscript-text consequence (not yet applied, separate from this repo
+  fix): any Results/Discussion claim that parameter optimization gave "no/minimal improvement" should
+  be revisited against these corrected numbers before the next manuscript pass -- the claim may still
+  hold in aggregate (differences are small-magnitude at the sample level, not necessarily accuracy-
+  moving), but it should now be checked against real data, not an artifact. arcasHLA/HLA-VBSeq sweep
+  files were not touched (already noted as varying normally, out of this item's scope).
 
 ## Resolved (pipeline/investigative — no manuscript text pending)
 

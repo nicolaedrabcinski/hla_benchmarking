@@ -23,6 +23,7 @@ datasets/raw/hlapers_ref/
 datasets/raw/hlapers_hladb/
 datasets/raw/hlapers_index.idx
 datasets/raw/t1k_ref/
+datasets/raw/d1_*/
 datasets/raw/d2_*/
 datasets/raw/d4_*/
 datasets/raw/d7_*/
