@@ -22,17 +22,6 @@ URGENT_*
 _old_pre_*/
 notebooks/_old_pre_novel_removal/
 
-# Intermediate per-run gold-standard subsets that notebook/script cells
-# regenerate from scratch every execution (e.g. population- or ancestry-
-# group CSVs built via gs_df[gs_df.Run.isin(...)].to_csv(...)) -- same
-# category as the europe_gs.csv/yoruba_gs.csv already removed from
-# notebooks/ in a prior commit ("Remove intermediate files the active
-# notebook regenerates every run"); this generalizes that rule so the same
-# mistake doesn't recur in a different directory.
-europe_gs.csv
-yoruba_gs.csv
-ceu_yri_*_gs.csv
-
 # Raw sequencing data / aligner indices / per-run logs (hundreds of GB;
 # re-derivable from datasets/raw/*.sh scripts + public accessions, never
 # meant to live in git). A handful of small pre-existing files under
