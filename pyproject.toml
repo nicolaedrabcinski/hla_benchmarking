@@ -1,7 +1,7 @@
 [project]
 name = "hla-benchmarking"
 version = "0.1.0"
-description = "Environment for notebooks/accuracy.ipynb: scoring, figures, and results tables for the HLA RNA-seq caller benchmark. Does NOT run the 12 HLA callers themselves -- see scripts/environmental_files/ for their per-tool conda environments."
+description = "Environment for scripts/notebooks/accuracy.ipynb: scoring, figures, and results tables for the HLA RNA-seq caller benchmark. Does NOT run the 12 HLA callers themselves -- see scripts/environments/ for their per-tool conda environments."
 requires-python = ">=3.12,<3.13"
 dependencies = [
     "pandas==3.0.3",

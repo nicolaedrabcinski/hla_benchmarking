@@ -1,7 +1,7 @@
 # Large re-downloadable reference database (auto-fetched by
-# notebooks/accuracy_fixed_executed.ipynb from ftp.ebi.ac.uk if missing; ~323MB,
+# scripts/notebooks/accuracy_fixed_executed.ipynb from ftp.ebi.ac.uk if missing; ~323MB,
 # exceeds GitHub's single-file limit and shouldn't live in git history)
-datasets/hla.dat
+data/input/hla.dat
 
 # OS / editor cruft
 .DS_Store
@@ -20,28 +20,28 @@ __pycache__/
 # are now actively stale, not just unpolished.
 URGENT_*
 _old_pre_*/
-notebooks/_old_pre_novel_removal/
+scripts/notebooks/_old_pre_novel_removal/
 
 # Raw sequencing data / aligner indices / per-run logs (hundreds of GB;
-# re-derivable from datasets/raw/*.sh scripts + public accessions, never
+# re-derivable from scripts/pipeline/*.sh scripts + public accessions, never
 # meant to live in git). A handful of small pre-existing files under
-# datasets/raw/ predate this rule and stay tracked (git already has them);
+# data/input/raw/ predate this rule and stay tracked (git already has them);
 # everything else new under here is ignored.
-datasets/raw/*_bams/
-datasets/raw/*_fastq_tmp/
-datasets/raw/d8_pacbio/
-datasets/raw/star_index/
-datasets/raw/references/
-datasets/raw/hlapers_ref/
-datasets/raw/hlapers_hladb/
-datasets/raw/hlapers_index.idx
-datasets/raw/t1k_ref/
-datasets/raw/d1_*/
-datasets/raw/d2_*/
-datasets/raw/d4_*/
-datasets/raw/d7_*/
-datasets/raw/d8_*/
-datasets/raw/phlat_index_build/
+data/input/raw/*_bams/
+data/input/raw/*_fastq_tmp/
+data/input/raw/d8_pacbio/
+data/input/raw/star_index/
+data/input/raw/references/
+data/input/raw/hlapers_ref/
+data/input/raw/hlapers_hladb/
+data/input/raw/hlapers_index.idx
+data/input/raw/t1k_ref/
+data/input/raw/d1_*/
+data/input/raw/d2_*/
+data/input/raw/d4_*/
+data/input/raw/d7_*/
+data/input/raw/d8_*/
+data/input/raw/phlat_index_build/
 
 # Deliberate pre-fix/pre-refresh backups (project convention: kept on disk,
 # never committed -- see .claude/memory/KNOWN_BUGS.md for what each one is a
@@ -75,4 +75,9 @@ datasets/raw/phlat_index_build/
 /verification/
 
 # archives of raw data/indices (e.g. the PHLAT index zip shared via Google Drive)
-datasets/raw/*.zip
+data/input/raw/*.zip
+
+# Pre-reorganisation location of the raw data (2.1 TB, never tracked).
+# Kept until a running D8-synthetic HLA-HD job that works inside it finishes;
+# then move its contents to data/input/raw/ and drop this rule.
+/datasets/
