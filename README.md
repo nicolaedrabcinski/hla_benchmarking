@@ -18,26 +18,29 @@ HISAT-genotype, HLAforest, HLApers, T1K, RNA2HLA.
 
 | Directory | Contents |
 |---|---|
-| `notebooks/accuracy.ipynb` | Main analysis: scoring, all figures, end-to-end reproducible |
-| `datasets/` | Gold-standard genotypes (`*_gs.csv`) and accession metadata |
-| `datasets/archive/` | Pre-processing provenance for the gold standards (see its own README) |
-| `results/standard/` | Per-tool, per-dataset standardized predictions |
+| `scripts/notebooks/accuracy.ipynb` | Main analysis: scoring, all figures, end-to-end reproducible |
+| `data/gold_standard/` | Gold-standard genotypes (`*_gs.csv`) |
+| `data/input/` | Accession lists and gold-standard provenance (`archive/`, see its own README) |
+| `data/interim/` | Per-tool, per-dataset standardized predictions (`standard/`) and the read-length, unmapped-reads and CPU/RAM experiments |
+| `data/final/` | Tables written by the notebook: the numbers behind the figures |
 | `figures/` | Generated figures (main + supplementary) |
-| `scripts/` | Standardization scripts, per-tool conda environments |
+| `scripts/` | Caller runs (`pipeline/`), standardization scripts, per-tool conda environments |
+| `docs/` | Presentations, manuscript drafts, detailed layout |
 
-Raw sequencing data, aligner indices, and tool installations are not
-tracked here (regenerable from `datasets/raw/*.sh` + public accessions);
-see "Installing the HLA callers" below and `scripts/environmental_files/`.
+Raw sequencing data (`data/input/raw/`), aligner indices, and tool
+installations are not tracked here (regenerable from `scripts/pipeline/*.sh`
++ public accessions); see "Installing the HLA callers" below and
+`scripts/environments/`.
 
 ## Installing the HLA callers
 
 Each tool runs in its own conda/mamba environment. Recreate one with:
 
 ```bash
-mamba env create -f scripts/environmental_files/<tool>.yml
+mamba env create -f scripts/environments/<tool>.yml
 ```
 
-(`scripts/environmental_files/environments.txt` lists every exported
+(`scripts/environments/environments.txt` lists every exported
 environment name.) The environment gives each tool's runtime dependencies;
 the tool's own code is not bundled in this repo and has to be obtained
 separately:
@@ -62,7 +65,7 @@ tool's own documentation for the current download location.
 
 ```bash
 uv sync
-uv run jupyter nbconvert --to notebook --execute notebooks/accuracy.ipynb
+uv run jupyter nbconvert --to notebook --execute scripts/notebooks/accuracy.ipynb
 ```
 
 ## Data sources

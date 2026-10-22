@@ -77,7 +77,7 @@ data/input/raw/phlat_index_build/
 # archives of raw data/indices (e.g. the PHLAT index zip shared via Google Drive)
 data/input/raw/*.zip
 
-# Pre-reorganisation location of the raw data (2.1 TB, never tracked).
-# Kept until a running D8-synthetic HLA-HD job that works inside it finishes;
-# then move its contents to data/input/raw/ and drop this rule.
+# Pre-reorganisation raw-data folder. Only the D8-synthetic HLA-HD run that is
+# still working inside it remains there; it moves to data/input/raw/ (and
+# datasets/ disappears) once that run ends. Drop this rule afterwards.
 /datasets/
