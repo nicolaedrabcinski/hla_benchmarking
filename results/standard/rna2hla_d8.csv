@@ -1,0 +1,4 @@
+Run,A,A.1,B,B.1,C,C.1,DQB1,DQB1.1,DRB1,DRB1.1
+mother,,,B*40:01,B*40:01,,,,,DRB1*11:04,DRB1*15:01
+father,A*24:04,A*24:04,,,,,,,DRB1*04:02,DRB1*04:02
+daughter,,,,,,,,,DRB1*11:04,DRB1*04:02

@@ -1,0 +1,17 @@
+HLAminer
+HLApers
+RNA2HLA_env
+Seq2HLA
+arcasHLA
+crest
+danbing-tk
+hisat2
+hisatgenotype
+hlaforest
+optitype
+parallel-fastq-dump
+phlat
+py2
+base
+bowtie2
+t1k

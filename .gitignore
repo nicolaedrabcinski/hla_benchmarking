@@ -1,0 +1,89 @@
+# Large re-downloadable reference database (auto-fetched by
+# notebooks/accuracy_fixed_executed.ipynb from ftp.ebi.ac.uk if missing; ~323MB,
+# exceeds GitHub's single-file limit and shouldn't live in git history)
+datasets/hla.dat
+
+# OS / editor cruft
+.DS_Store
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Debug/run logs from one-off script invocations, anywhere in the repo.
+*.log
+
+# Scratch/debug artifacts named by convention, not meant to be permanent:
+# a leading underscore marks a one-off working file (e.g. _run_poster.log,
+# _old_pre_rewrite/), and "URGENT_*" marks an ad-hoc cross-check dumped
+# during active debugging -- several already-committed URGENT_* files
+# reference the "filtered/unfiltered" scoring split retired 2026-10-18 and
+# are now actively stale, not just unpolished.
+URGENT_*
+_old_pre_*/
+notebooks/_old_pre_novel_removal/
+
+# Intermediate per-run gold-standard subsets that notebook/script cells
+# regenerate from scratch every execution (e.g. population- or ancestry-
+# group CSVs built via gs_df[gs_df.Run.isin(...)].to_csv(...)) -- same
+# category as the europe_gs.csv/yoruba_gs.csv already removed from
+# notebooks/ in a prior commit ("Remove intermediate files the active
+# notebook regenerates every run"); this generalizes that rule so the same
+# mistake doesn't recur in a different directory.
+europe_gs.csv
+yoruba_gs.csv
+ceu_yri_*_gs.csv
+
+# Raw sequencing data / aligner indices / per-run logs (hundreds of GB;
+# re-derivable from datasets/raw/*.sh scripts + public accessions, never
+# meant to live in git). A handful of small pre-existing files under
+# datasets/raw/ predate this rule and stay tracked (git already has them);
+# everything else new under here is ignored.
+datasets/raw/*_bams/
+datasets/raw/*_fastq_tmp/
+datasets/raw/d8_pacbio/
+datasets/raw/star_index/
+datasets/raw/references/
+datasets/raw/hlapers_ref/
+datasets/raw/hlapers_hladb/
+datasets/raw/hlapers_index.idx
+datasets/raw/t1k_ref/
+datasets/raw/d1_*/
+datasets/raw/d2_*/
+datasets/raw/d4_*/
+datasets/raw/d7_*/
+datasets/raw/d8_*/
+datasets/raw/phlat_index_build/
+
+# Deliberate pre-fix/pre-refresh backups (project convention: kept on disk,
+# never committed -- see .claude/memory/KNOWN_BUGS.md for what each one is a
+# backup of).
+*.bak
+*.bak_*
+*_backup/
+
+# Sibling working directories that now live inside the repo root after
+# flattening repo/ up a level (2026-10-08) -- never meant to be tracked.
+/tools/
+/.venv/
+
+# Local Claude Code settings -- purged from git history 2026-10-08; never
+# meant to be tracked (per-machine config, not project state).
+/.claude/
+
+# Internal/process documentation -- not for publication (Human-PI decision,
+# 2026-10-22). Only a file literally named README.md (any directory) and the
+# top-level LICENSE are exempt -- everything else written in Markdown stays
+# local. Previously-tracked instances were purged from git history + force-
+# pushed the same day; this prevents any of them (or new ones) from being
+# re-added by a future `git add -A` / `git add .`.
+*.md
+!**/README.md
+
+# Headline per-tool accuracy numbers -- same "not for publication ahead of
+# the manuscript" reasoning as the Markdown rule above, just in csv/json
+# instead of .md (Human-PI decision, 2026-10-22). Purged from git history +
+# force-pushed the same day; kept on local disk.
+/verification/
+
+# archives of raw data/indices (e.g. the PHLAT index zip shared via Google Drive)
+datasets/raw/*.zip
