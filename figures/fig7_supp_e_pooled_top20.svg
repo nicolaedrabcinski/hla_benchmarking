@@ -631,19 +631,19 @@ z
      <g id="ytick_24">
       <g id="line2d_36"/>
       <g id="text_64">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="145.168141" transform="rotate(-0 338.515353 145.168141)">PHLAT</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="145.204703" transform="rotate(-0 338.515353 145.204703)">HLA-VBSeq</text>
       </g>
      </g>
      <g id="ytick_25">
       <g id="line2d_37"/>
       <g id="text_65">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="129.054123" transform="rotate(-0 338.515353 129.054123)">HLAforest</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="129.054123" transform="rotate(-0 338.515353 129.054123)">PHLAT</text>
       </g>
      </g>
      <g id="ytick_26">
       <g id="line2d_38"/>
       <g id="text_66">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="112.976667" transform="rotate(-0 338.515353 112.976667)">HLA-VBSeq</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="112.940104" transform="rotate(-0 338.515353 112.940104)">HLAforest</text>
       </g>
      </g>
      <g id="ytick_27">
@@ -655,25 +655,25 @@ z
      <g id="ytick_28">
       <g id="line2d_40"/>
       <g id="text_68">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="80.712068" transform="rotate(-0 338.515353 80.712068)">arcasHLA</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="80.712068" transform="rotate(-0 338.515353 80.712068)">RNA2HLA</text>
       </g>
      </g>
      <g id="ytick_29">
       <g id="line2d_41"/>
       <g id="text_69">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="64.59805" transform="rotate(-0 338.515353 64.59805)">RNA2HLA</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="64.59805" transform="rotate(-0 338.515353 64.59805)">arcasHLA</text>
       </g>
      </g>
      <g id="ytick_30">
       <g id="line2d_42"/>
       <g id="text_70">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="48.484031" transform="rotate(-0 338.515353 48.484031)">HLA-HD</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="48.520594" transform="rotate(-0 338.515353 48.520594)">HISAT-genotype</text>
       </g>
      </g>
      <g id="ytick_31">
       <g id="line2d_43"/>
       <g id="text_71">
-       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="32.406575" transform="rotate(-0 338.515353 32.406575)">HISAT-genotype</text>
+       <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="338.515353" y="32.370013" transform="rotate(-0 338.515353 32.370013)">HLA-HD</text>
       </g>
      </g>
      <g id="ytick_32">
@@ -709,24 +709,24 @@ z
     </g>
     <g id="patch_36">
      <path d="M 340.515353 148.660703 
-L 369.302889 148.660703 
-L 369.302889 137.380891 
+L 363.242355 148.660703 
+L 363.242355 137.380891 
 L 340.515353 137.380891 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
     </g>
     <g id="patch_37">
      <path d="M 340.515353 132.546685 
-L 393.545025 132.546685 
-L 393.545025 121.266872 
+L 369.302889 132.546685 
+L 369.302889 121.266872 
 L 340.515353 121.266872 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
     </g>
     <g id="patch_38">
      <path d="M 340.515353 116.432667 
-L 363.242355 116.432667 
-L 363.242355 105.152854 
+L 393.545025 116.432667 
+L 393.545025 105.152854 
 L 340.515353 105.152854 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
@@ -741,32 +741,32 @@ z
     </g>
     <g id="patch_40">
      <path d="M 340.515353 84.20463 
-L 355.666688 84.20463 
-L 355.666688 72.924818 
+L 354.151555 84.20463 
+L 354.151555 72.924818 
 L 340.515353 72.924818 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
     </g>
     <g id="patch_41">
      <path d="M 340.515353 68.090612 
-L 354.151555 68.090612 
-L 354.151555 56.810799 
+L 355.666688 68.090612 
+L 355.666688 56.810799 
 L 340.515353 56.810799 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
     </g>
     <g id="patch_42">
      <path d="M 340.515353 51.976594 
-L 343.54562 51.976594 
-L 343.54562 40.696781 
+L 349.606154 51.976594 
+L 349.606154 40.696781 
 L 340.515353 40.696781 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
     </g>
     <g id="patch_43">
      <path d="M 340.515353 35.862576 
-L 349.606154 35.862576 
-L 349.606154 24.582763 
+L 343.54562 35.862576 
+L 343.54562 24.582763 
 L 340.515353 24.582763 
 z
 " clip-path="url(#p055059eea8)" style="fill: #c44e52"/>
@@ -799,28 +799,28 @@ L 517.179917 201.031263
      <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="367.969572" y="160.427393" transform="rotate(-0 367.969572 160.427393)">8%</text>
     </g>
     <g id="text_76">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="372.514972" y="144.313375" transform="rotate(-0 372.514972 144.313375)">9%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="366.454438" y="144.313375" transform="rotate(-0 366.454438 144.313375)">7%</text>
     </g>
     <g id="text_77">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="396.757108" y="128.199357" transform="rotate(-0 396.757108 128.199357)">17%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="372.514972" y="128.199357" transform="rotate(-0 372.514972 128.199357)">9%</text>
     </g>
     <g id="text_78">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="366.454438" y="112.085339" transform="rotate(-0 366.454438 112.085339)">7%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="396.757108" y="112.085339" transform="rotate(-0 396.757108 112.085339)">17%</text>
     </g>
     <g id="text_79">
      <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="357.363638" y="95.97132" transform="rotate(-0 357.363638 95.97132)">4%</text>
     </g>
     <g id="text_80">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="358.878771" y="79.857302" transform="rotate(-0 358.878771 79.857302)">5%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="357.363638" y="79.857302" transform="rotate(-0 357.363638 79.857302)">4%</text>
     </g>
     <g id="text_81">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="357.363638" y="63.743284" transform="rotate(-0 357.363638 63.743284)">4%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="358.878771" y="63.743284" transform="rotate(-0 358.878771 63.743284)">5%</text>
     </g>
     <g id="text_82">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="346.757703" y="47.629266" transform="rotate(-0 346.757703 47.629266)">1%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="352.818237" y="47.629266" transform="rotate(-0 352.818237 47.629266)">3%</text>
     </g>
     <g id="text_83">
-     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="352.818237" y="31.515247" transform="rotate(-0 352.818237 31.515247)">3%</text>
+     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="346.757703" y="31.515247" transform="rotate(-0 346.757703 31.515247)">1%</text>
     </g>
     <g id="text_84">
      <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start; fill: #666666" x="351.303104" y="15.401229" transform="rotate(-0 351.303104 15.401229)">2%</text>

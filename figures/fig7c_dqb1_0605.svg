@@ -148,19 +148,19 @@ L 0 2.5
     <g id="ytick_4">
      <g id="line2d_12"/>
      <g id="text_13">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="94.990111" transform="rotate(-0 45.020625 94.990111)">PHLAT</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="95.026673" transform="rotate(-0 45.020625 95.026673)">HLA-VBSeq</text>
      </g>
     </g>
     <g id="ytick_5">
      <g id="line2d_13"/>
      <g id="text_14">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="86.265879" transform="rotate(-0 45.020625 86.265879)">HLAforest</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="86.265879" transform="rotate(-0 45.020625 86.265879)">PHLAT</text>
      </g>
     </g>
     <g id="ytick_6">
      <g id="line2d_14"/>
      <g id="text_15">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="77.57821" transform="rotate(-0 45.020625 77.57821)">HLA-VBSeq</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="77.541648" transform="rotate(-0 45.020625 77.541648)">HLAforest</text>
      </g>
     </g>
     <g id="ytick_7">
@@ -172,25 +172,25 @@ L 0 2.5
     <g id="ytick_8">
      <g id="line2d_16"/>
      <g id="text_17">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="60.093184" transform="rotate(-0 45.020625 60.093184)">arcasHLA</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="60.093184" transform="rotate(-0 45.020625 60.093184)">RNA2HLA</text>
      </g>
     </g>
     <g id="ytick_9">
      <g id="line2d_17"/>
      <g id="text_18">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="51.368953" transform="rotate(-0 45.020625 51.368953)">RNA2HLA</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="51.368953" transform="rotate(-0 45.020625 51.368953)">arcasHLA</text>
      </g>
     </g>
     <g id="ytick_10">
      <g id="line2d_18"/>
      <g id="text_19">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="42.644721" transform="rotate(-0 45.020625 42.644721)">HLA-HD</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="42.681284" transform="rotate(-0 45.020625 42.681284)">HISAT-genotype</text>
      </g>
     </g>
     <g id="ytick_11">
      <g id="line2d_19"/>
      <g id="text_20">
-      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="33.957052" transform="rotate(-0 45.020625 33.957052)">HISAT-genotype</text>
+      <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="45.020625" y="33.920489" transform="rotate(-0 45.020625 33.920489)">HLA-HD</text>
      </g>
     </g>
     <g id="ytick_12">
@@ -258,16 +258,16 @@ z
    </g>
    <g id="patch_10">
     <path d="M 47.020625 60.999322 
-L 47.020625 60.999322 
-L 47.020625 54.892359 
+L 85.794254 60.999322 
+L 85.794254 54.892359 
 L 47.020625 54.892359 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #7f7f7f"/>
    </g>
    <g id="patch_11">
     <path d="M 47.020625 52.27509 
-L 85.794254 52.27509 
-L 85.794254 46.168128 
+L 47.020625 52.27509 
+L 47.020625 46.168128 
 L 47.020625 46.168128 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #7f7f7f"/>
@@ -322,24 +322,24 @@ z
    </g>
    <g id="patch_18">
     <path d="M 47.020625 95.896248 
-L 163.341512 95.896248 
-L 163.341512 89.789286 
+L 182.728326 95.896248 
+L 182.728326 89.789286 
 L 47.020625 89.789286 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #c44e52"/>
    </g>
    <g id="patch_19">
     <path d="M 47.020625 87.172017 
-L 143.954697 87.172017 
-L 143.954697 81.065054 
+L 163.341512 87.172017 
+L 163.341512 81.065054 
 L 47.020625 81.065054 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #c44e52"/>
    </g>
    <g id="patch_20">
     <path d="M 47.020625 78.447785 
-L 182.728326 78.447785 
-L 182.728326 72.340823 
+L 143.954697 78.447785 
+L 143.954697 72.340823 
 L 47.020625 72.340823 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #c44e52"/>
@@ -353,18 +353,18 @@ z
 " clip-path="url(#p064cf8236c)" style="fill: #c44e52"/>
    </g>
    <g id="patch_22">
-    <path d="M 47.020625 60.999322 
-L 182.728326 60.999322 
-L 182.728326 54.892359 
-L 47.020625 54.892359 
+    <path d="M 85.794254 60.999322 
+L 143.954697 60.999322 
+L 143.954697 54.892359 
+L 85.794254 54.892359 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #c44e52"/>
    </g>
    <g id="patch_23">
-    <path d="M 85.794254 52.27509 
-L 143.954697 52.27509 
-L 143.954697 46.168128 
-L 85.794254 46.168128 
+    <path d="M 47.020625 52.27509 
+L 182.728326 52.27509 
+L 182.728326 46.168128 
+L 47.020625 46.168128 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #c44e52"/>
    </g>
@@ -417,26 +417,26 @@ z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
    <g id="patch_30">
-    <path d="M 163.341512 95.896248 
+    <path d="M 182.728326 95.896248 
 L 182.728326 95.896248 
 L 182.728326 89.789286 
-L 163.341512 89.789286 
+L 182.728326 89.789286 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
    <g id="patch_31">
-    <path d="M 143.954697 87.172017 
+    <path d="M 163.341512 87.172017 
 L 182.728326 87.172017 
 L 182.728326 81.065054 
-L 143.954697 81.065054 
+L 163.341512 81.065054 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
    <g id="patch_32">
-    <path d="M 182.728326 78.447785 
+    <path d="M 143.954697 78.447785 
 L 182.728326 78.447785 
 L 182.728326 72.340823 
-L 182.728326 72.340823 
+L 143.954697 72.340823 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
@@ -449,18 +449,18 @@ z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
    <g id="patch_34">
-    <path d="M 182.728326 60.999322 
+    <path d="M 143.954697 60.999322 
 L 182.728326 60.999322 
 L 182.728326 54.892359 
-L 182.728326 54.892359 
+L 143.954697 54.892359 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
    <g id="patch_35">
-    <path d="M 143.954697 52.27509 
+    <path d="M 182.728326 52.27509 
 L 182.728326 52.27509 
 L 182.728326 46.168128 
-L 143.954697 46.168128 
+L 182.728326 46.168128 
 z
 " clip-path="url(#p064cf8236c)" style="fill: #e3a8aa"/>
    </g>
