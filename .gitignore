@@ -37,6 +37,10 @@ data/input/raw/hlapers_hladb/
 data/input/raw/hlapers_index.idx
 data/input/raw/t1k_ref/
 data/input/raw/d1_*/
+data/input/raw/mage_*/
+data/input/raw/mage_queue.txt*
+data/input/raw/mage_maxpar.txt
+data/input/raw/mage_star.lock
 data/input/raw/d2_*/
 data/input/raw/d4_*/
 data/input/raw/d7_*/
