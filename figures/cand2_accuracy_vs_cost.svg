@@ -484,7 +484,7 @@ z
     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="53.566796" y="25.03298" transform="rotate(-0 53.566796 25.03298)">arcasHLA</text>
    </g>
    <g id="text_14">
-    <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: middle" x="61.297377" y="12.473555" transform="rotate(-0 61.297377 12.473555)">RNA2HLA</text>
+    <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: end" x="58.297377" y="12.473555" transform="rotate(-0 58.297377 12.473555)">RNA2HLA</text>
    </g>
    <g id="text_15">
     <text style="font-size: 5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="89.84295" y="14.967076" transform="rotate(-0 89.84295 14.967076)">T1K</text>
@@ -515,7 +515,7 @@ z
    </g>
    <g id="legend_1">
     <g id="text_24">
-     <text style="font-size: 5.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="187.505887" y="148.030186" transform="rotate(-0 187.505887 148.030186)">Peak RAM</text>
+     <text style="font-size: 5.5px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="187.505887" y="77.903491" transform="rotate(-0 187.505887 77.903491)">Peak RAM</text>
     </g>
     <g id="PathCollection_5">
      <defs>
@@ -532,11 +532,11 @@ z
 "/>
      </defs>
      <g>
-      <use xlink:href="#ma6ef77cfc4" x="190.944208" y="153.642998" style="fill: #999999"/>
+      <use xlink:href="#ma6ef77cfc4" x="190.944208" y="83.516304" style="fill: #999999"/>
      </g>
     </g>
     <g id="text_25">
-     <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="196.344208" y="155.217998" transform="rotate(-0 196.344208 155.217998)">1 GB</text>
+     <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="196.344208" y="85.091304" transform="rotate(-0 196.344208 85.091304)">1 GB</text>
     </g>
     <g id="PathCollection_6">
      <defs>
@@ -553,11 +553,11 @@ z
 "/>
      </defs>
      <g>
-      <use xlink:href="#mae65fa7e13" x="190.944208" y="160.930186" style="fill: #999999"/>
+      <use xlink:href="#mae65fa7e13" x="190.944208" y="90.803491" style="fill: #999999"/>
      </g>
     </g>
     <g id="text_26">
-     <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="196.344208" y="162.505186" transform="rotate(-0 196.344208 162.505186)">4 GB</text>
+     <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="196.344208" y="92.378491" transform="rotate(-0 196.344208 92.378491)">4 GB</text>
     </g>
     <g id="PathCollection_7">
      <defs>
@@ -574,11 +574,11 @@ z
 "/>
      </defs>
      <g>
-      <use xlink:href="#m85a267f6f9" x="190.944208" y="168.217373" style="fill: #999999"/>
+      <use xlink:href="#m85a267f6f9" x="190.944208" y="98.090679" style="fill: #999999"/>
      </g>
     </g>
     <g id="text_27">
-     <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="196.344208" y="169.792373" transform="rotate(-0 196.344208 169.792373)">16 GB</text>
+     <text style="font-size: 6px; font-family: 'Arial', 'Liberation Sans', 'DejaVu Sans', sans-serif; text-anchor: start" x="196.344208" y="99.665679" transform="rotate(-0 196.344208 99.665679)">16 GB</text>
     </g>
    </g>
   </g>
