@@ -5,7 +5,9 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")/../.." && pwd)"
 set -uo pipefail
 ACC="$1"
 cd ${REPO_ROOT}/data/input/raw
-MAMBA=mamba
+# background jobs do not get the login shell's conda setup, so use absolute paths
+MAMBA=${MAMBA:-$(command -v mamba || echo $HOME/miniforge3/bin/mamba)}
+BOWTIE2=$(command -v bowtie2 || echo $HOME/miniforge3/envs/bowtie2/bin/bowtie2)
 T=12
 SRA=mage_sra
 FQ=mage_rnaseq
@@ -92,7 +94,7 @@ run_phlat() {
   local DIST=${REPO_ROOT}/tools/phlat/phlat-release
   mkdir -p mage_phlat
   $MAMBA run -n phlat python2.7 "$DIST/dist/PHLAT.py" -1 "$R1" -2 "$R2" \
-    -index phlat_index_build/index4phlat_current -b2url "$(command -v bowtie2 || $MAMBA run -n bowtie2 command -v bowtie2)" \
+    -index phlat_index_build/index4phlat_current -b2url "$BOWTIE2" \
     -tag "$ACC" -p $T -e "$DIST" -o mage_phlat -pe 1 > "mage_phlat/${ACC}.log" 2>&1
 }
 
@@ -165,7 +167,7 @@ timed_run() {
 
 export -f log wait_mem run_t1k run_seq2hla run_optitype run_hlaminer run_hlavbseq run_hlapers run_hlaforest \
   run_phlat run_hisatgeno run_hlahd run_rna2hla run_arcashla
-export ACC MAMBA T R1 R2 REPO_ROOT
+export ACC MAMBA BOWTIE2 T R1 R2 REPO_ROOT
 
 if [ ! -s "$R1" ] || [ ! -s "$R2" ]; then
   log "download"
