@@ -115,11 +115,13 @@ run_hlaforest() {
 
 run_phlat() {
   [ -f "mage_phlat/${ACC}_HLA.sum" ] && return 0
-  local DIST=${REPO_ROOT}/tools/phlat/phlat-release
   mkdir -p mage_phlat
-  $MAMBA run -n phlat python2.7 "$DIST/dist/PHLAT.py" -1 "$R1" -2 "$R2" \
-    -index phlat_index_build/index4phlat_current -b2url "$BOWTIE2" \
-    -tag "$ACC" -p $T -e "$DIST" -o mage_phlat -pe 1 > "mage_phlat/${ACC}.log" 2>&1
+  # official index is no longer downloadable; the image bundles it. Its modules are .pyo files,
+  # which python2.7 only loads with -O. CPU time of a docker run is not seen by /usr/bin/time.
+  /usr/bin/docker run --rm --user "$(id -u):$(id -g)" -v "$PWD/$FQ:/in:ro" -v "$PWD/mage_phlat:/out" \
+    chrisamiller/phlat:1.1_withindex python2.7 -O /opt/dist/PHLAT.py \
+    -1 "/in/${ACC}_1.fastq" -2 "/in/${ACC}_2.fastq" -index /opt/b2folder -b2url /usr/bin/bowtie2 \
+    -tag "$ACC" -p $T -e /opt -o /out -pe 1 > "mage_phlat/${ACC}.log" 2>&1
 }
 
 run_hisatgeno() {
@@ -210,8 +212,7 @@ if [ ! -s "$R1" ] || [ ! -s "$R2" ]; then
   exit 1
 fi
 
-# PHLAT is left out until its patched copy (needed for the rebuilt index) is restored
-for tool in t1k seq2hla optitype hlaminer hlavbseq hlapers hlaforest hisatgeno hlahd rna2hla arcashla; do
+for tool in t1k seq2hla phlat optitype hlaminer hlavbseq hlapers hlaforest hisatgeno hlahd rna2hla arcashla; do
   wait_mem 20
   timed_run "$tool"
 done
