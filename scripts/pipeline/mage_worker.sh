@@ -40,9 +40,28 @@ run_seq2hla() {
 run_optitype() {
   local O="mage_optitype/${ACC}"
   [ -f "$O/${ACC}_result.tsv" ] && return 0
-  mkdir -p "$O"
-  $MAMBA run -n optitype optitype run -i "$R1" -i "$R2" --rna -o "$O" -p "$ACC" -b 0.009 --solver cbc \
-    --threads $T > "$O/run.log" 2>&1
+  mkdir -p "$O/fished"
+  # OptiType maps each mate file against its HLA reference with razers3, which holds every read in
+  # memory (up to ~55 GB at 150 bp). Pre-select the reads that hit the reference with the same
+  # razers3 settings, in chunks, so OptiType sees the same alignments in a fraction of the memory.
+  local REF=$HOME/miniforge3/envs/optitype/share/optitype/data/hla_reference_rna.fasta
+  local m f c
+  for m in 1 2; do
+    f=$FQ/${ACC}_${m}.fastq
+    split -l 16000000 -d -a 3 --additional-suffix=.fastq "$f" "$O/fished/chunk${m}_"  # razers3 needs the extension
+    for c in "$O"/fished/chunk${m}_???.fastq; do
+      $MAMBA run -n optitype razers3 -i 97 -m 99999 --distance-range 0 -pa -tc $T -o "${c%.fastq}.bam" "$REF" "$c" \
+        >> "$O/fished/razers3.log" 2>&1
+      rm -f "$c"
+    done
+    samtools cat "$O"/fished/chunk${m}_*.bam | samtools fastq -F 4 - 2>/dev/null > "$O/fished/${ACC}_${m}.fastq"
+    rm -f "$O"/fished/chunk${m}_*.bam
+  done
+  $MAMBA run -n optitype optitype run -i "$O/fished/${ACC}_1.fastq" -i "$O/fished/${ACC}_2.fastq" --rna \
+    -o "$O" -p "$ACC" -b 0.009 --solver cbc --threads $T > "$O/run.log" 2>&1
+  local rc=$?
+  rm -rf "$O/fished"
+  return $rc
 }
 
 run_hlaminer() {
@@ -83,10 +102,15 @@ run_hlapers() {
 }
 
 run_hlaforest() {
-  [ -f "mage_hlaforest/${ACC}/haplotypes.txt" ] && return 0
+  local H="mage_hlaforest/${ACC}/haplotypes.txt"
+  grep -q "^ROOT:DRB1" "$H" 2>/dev/null && return 0
   mkdir -p "mage_hlaforest/${ACC}"
   $MAMBA run -n hlaforest bash ${REPO_ROOT}/tools/hlaforest/scripts/CallHaplotypesPE.sh \
     "mage_hlaforest/${ACC}/" "$R1" "$R2" > "mage_hlaforest/${ACC}.log" 2>&1
+  rm -rf "mage_hlaforest/${ACC}/tmp"
+  # call-haplotypes.pl dies on some non-classical genes after the classical ones are written,
+  # so success means the benchmarked loci are in the output, not a zero exit code
+  grep -q "^ROOT:DRB1" "$H" && grep -q "^ROOT:A" "$H"
 }
 
 run_phlat() {
@@ -102,6 +126,8 @@ run_hisatgeno() {
   local O="mage_hisatgeno/${ACC}"
   [ -n "$(find "$O" -iname '*.report' 2>/dev/null)" ] && return 0
   mkdir -p "$O"
+  PYTHONPATH=${REPO_ROOT}/tools/hisat-genotype/hisatgenotype_modules \
+  PATH=${REPO_ROOT}/tools/hisat-genotype:${REPO_ROOT}/tools/hisat-genotype/hisat2:$PATH \
   $MAMBA run -n hisatgeno ${REPO_ROOT}/tools/hisat-genotype/hisatgenotype -1 "$R1" -2 "$R2" \
     --base genotype_genome -z ${REPO_ROOT}/tools/hisat-genotype/indicies --out-dir "$O" -p $T \
     --locus-list A,B,C,DRB1,DQB1 > "mage_hisatgeno/${ACC}.log" 2>&1
@@ -113,6 +139,10 @@ run_hlahd() {
   mkdir -p mage_hlahd
   PATH=$HD/bin:$PATH $MAMBA run -n hlahd bash $HD/bin/hlahd.sh -t $T -f $HD/freq_data "$R1" "$R2" \
     $HD/HLA_gene.split.txt $HD/dictionary "$ACC" mage_hlahd > "mage_hlahd/${ACC}.log" 2>&1
+  local rc=$?
+  # HLA-HD leaves ~40 GB of mapping intermediates per sample; only result/ and log/ are needed
+  rm -rf "mage_hlahd/${ACC}"/{mapfile,exon,intron,maplist}
+  return $rc
 }
 
 run_rna2hla() {
@@ -167,7 +197,7 @@ timed_run() {
 
 export -f log wait_mem run_t1k run_seq2hla run_optitype run_hlaminer run_hlavbseq run_hlapers run_hlaforest \
   run_phlat run_hisatgeno run_hlahd run_rna2hla run_arcashla
-export ACC MAMBA BOWTIE2 T R1 R2 REPO_ROOT
+export ACC MAMBA BOWTIE2 T R1 R2 REPO_ROOT FQ
 
 if [ ! -s "$R1" ] || [ ! -s "$R2" ]; then
   log "download"
@@ -180,9 +210,12 @@ if [ ! -s "$R1" ] || [ ! -s "$R2" ]; then
   exit 1
 fi
 
-for tool in t1k seq2hla optitype hlaminer hlavbseq hlapers hlaforest phlat hisatgeno hlahd rna2hla arcashla; do
+# PHLAT is left out until its patched copy (needed for the rebuilt index) is restored
+for tool in t1k seq2hla optitype hlaminer hlavbseq hlapers hlaforest hisatgeno hlahd rna2hla arcashla; do
   wait_mem 20
   timed_run "$tool"
 done
 rm -f "$R1" "$R2"
+# also catches intermediates left by runs made before the per-tool cleanup existed
+rm -rf "mage_hlahd/${ACC}"/{mapfile,exon,intron,maplist} "mage_hlaforest/${ACC}/tmp"
 log "ALL TOOLS DONE"
