@@ -80,6 +80,6 @@ MIT (see `LICENSE`). Copyright © Nicolae Drabcinski.
 
 ## Contact
 
-Nicolae Drabcinski — nicolae.drabcinski@doctoral.uj.edu.pl
+Nicolae Drabcinski — nicolae.drabcinski@doctoral.uj.edu.pl  
 Anna Garbarz — anna.garbarz@doctoral.uj.edu.pl
 Małopolska Centre of Biotechnology, Jagiellonian University
