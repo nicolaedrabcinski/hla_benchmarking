@@ -1,8 +1,8 @@
 Tool,CorrectAlleles,TotalAlleles,Accuracy
-T1K,192,200,0.96
-hlapers,160,200,0.8
-rna2hla,111,200,0.555
-arcas,87,200,0.435
-hlavbseq,60,200,0.3
-optitype,58,200,0.29
-hlaminer,28,200,0.14
+T1K,172,200,0.86
+hlapers,136,200,0.68
+rna2hla,68,200,0.34
+arcas,59,200,0.295
+hlavbseq,41,200,0.205
+optitype,40,200,0.2
+hlaminer,18,200,0.09
