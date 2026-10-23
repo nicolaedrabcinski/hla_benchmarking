@@ -38,6 +38,10 @@ data/input/raw/hlapers_index.idx
 data/input/raw/t1k_ref/
 data/input/raw/d1_*/
 data/input/raw/mage_*/
+data/input/raw/rerun_hlaminer/
+data/input/raw/hlaminer_rerun_*
+data/input/raw/rerun_phlat/
+data/input/raw/phlat_docker_test/
 data/input/raw/mage_queue.txt*
 data/input/raw/mage_maxpar.txt
 data/input/raw/mage_star.lock
