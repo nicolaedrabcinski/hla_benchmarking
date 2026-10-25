@@ -9,7 +9,8 @@ mkdir -p rerun_hlaminer/logs
 
 while true; do
   MAXPAR=$(cat hlaminer_rerun_maxpar.txt 2>/dev/null || echo 1)
-  running=$(pgrep -f "bash ${REPO_ROOT}/scripts/pipeline/hlaminer_rerun_worker.sh" | wc -l)
+  # count samples, not processes: subshells inside a worker show the same command line
+  running=$(pgrep -af "^bash ${REPO_ROOT}/scripts/pipeline/hlaminer_rerun_worker.sh" | awk '{print $5}' | sort -u | wc -l)
   disk=$(df -BG --output=avail . | tail -1 | tr -dc 0-9)
   if [ "$running" -lt "$MAXPAR" ] && [ -s "$QUEUE" ] && [ "$disk" -ge 300 ]; then
     IFS=$'\t' read -r DS ID RUNS < "$QUEUE"
